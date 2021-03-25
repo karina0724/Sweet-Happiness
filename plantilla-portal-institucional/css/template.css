@@ -117,18 +117,23 @@ img{ border:0; }
 .panelDerecho{ width:200px; height:auto; display:table; float:left; background:#CCC; }
 .panelCentral{ width:100%; height:auto; display:table; float:left; background:#CCC; margin:0 15px 0 0; margin-bottom: 30px; }
 .panelInferior{ width:100%; height:auto; display:table; background:#CCC; margin:15px 0; }
-.panelContacto{width:100%; height:auto; display: flex; display:table; background:#284243; margin:15px auto;}
-.panelContacto h2{
+.panelContacto{width:100%; height:auto; display: flex; display:table; background:#284243; margin:10px auto;}
+/* .panelForm {
+   padding: 10px 0;
+} */
+.titulo h2{
     color: #fff;
     font-weight: 500;
+    margin: 20px;
+    text-align: center;
 }
 .servicios{margin-top: 20px;
 }
 .servicios h2{
     font-weight: 600;
-    margin-bottom: 20px ;
-    
+    margin-bottom: 20px;
 }
+
 /*FIN PROPIEDADES DE LOS PANELES DE LA DIVISION DE CONTENIDO*/
 
 /*PROPIEDADES DEL PIE DE PAGINA*/
