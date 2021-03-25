@@ -30,6 +30,26 @@ img{ border:0; }
    border-radius: 5px;
 }
 
+.img-carrousel {
+    width: 100%;
+    height: 400px;
+    vertical-align: top;
+}
+
+.sobreNosotros {display: flex; margin: 20px 30px; align-items: center;}
+.sobreNosotros img{
+    margin: 25px;
+    width: 100%;
+    height: 200px;
+    vertical-align: top;
+}
+.txtSobreNosotros p{
+    line-height: 1.8;
+}
+.txtSobreNosotros h2{
+    font-weight: 600;
+}
+
 .clr{ clear:both; }
 .clr2{ height:30px; clear:both; }
 .clr3{ height:50px; clear:both; }
@@ -91,9 +111,13 @@ img{ border:0; }
 .panelSuperior{ width:100%; height:auto; display:table; background:#CCC; margin:0 0 15px 0; }
 .panelIzquierdo,
 .panelDerecho{ width:200px; height:auto; display:table; float:left; background:#CCC; }
-.panelIzquierdo{ margin:0 15px 0 0; }
-.panelCentral{ width:564px; height:auto; display:table; float:left; background:#CCC; margin:0 15px 0 0; }
-.panelInferior{ width:100%; height:auto; display:table; background:#CCC; margin:15px 0 0 0; }
+.panelCentral{ width:100%; height:auto; display:table; float:left; background:#CCC; margin:0 15px 0 0; }
+.panelInferior{ width:100%; height:auto; display:table; background:#CCC; margin:15px 0; }
+.panelContacto{width:76%; height:auto; display: flex; display:table; background:#284243; margin:15px auto;}
+.panelContacto h2{
+    color: #fff;
+    font-weight: 500;
+}
 /*FIN PROPIEDADES DE LOS PANELES DE LA DIVISION DE CONTENIDO*/
 
 /*PROPIEDADES DEL PIE DE PAGINA*/
