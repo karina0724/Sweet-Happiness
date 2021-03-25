@@ -83,7 +83,7 @@ img{ border:0; }
 .fRight form{ width:auto; float:right; }
 .navMenu{ width:100%; height:auto; display:table; text-align:right; }
 .navMenu ul.menu{ width:auto; float:right; margin:10px 0 0 0; }
-.navMenu ul.menu li{ list-style:none; display:inline-block; float:left; text-transform:uppercase; font-size:11px; border-right:solid #000 1px; font-weight:normal; margin:0 7px 0 0; padding:0 7px 0 0; }
+.navMenu ul.menu li{ list-style:none; display:inline-block; text-transform:uppercase; font-size:11px; border-right:solid #000 1px; font-weight:normal; margin:0 7px 0 0; padding:0 7px 0 0; }
 .navMenu ul.menu li,
 .navMenu ul.menu li a{ color:#000000; }
 .navMenu ul.menu li:last-child{ margin:0; padding:0; border:0; }
@@ -117,16 +117,9 @@ img{ border:0; }
 .panelDerecho{ width:200px; height:auto; display:table; float:left; background:#CCC; }
 .panelCentral{ width:100%; height:auto; display:table; float:left; background:#CCC; margin:0 15px 0 0; margin-bottom: 30px; }
 .panelInferior{ width:100%; height:auto; display:table; background:#CCC; margin:15px 0; }
-.panelContacto{width:100%; height:auto; display: flex; display:table; background:#284243; margin:10px auto;}
 /* .panelForm {
    padding: 10px 0;
 } */
-.titulo h2{
-    color: #fff;
-    font-weight: 500;
-    margin: 20px;
-    text-align: center;
-}
 .servicios{margin-top: 20px;
 }
 .servicios h2{
@@ -139,7 +132,7 @@ img{ border:0; }
 /*PROPIEDADES DEL PIE DE PAGINA*/
 ul#linesLogos,
 ul#infoFooter li#info ul.menu{ width:auto; display:table; margin:0 auto; }
-ul#linesLogos li{ height:77px; list-style:none; display:inline-block; float:left; }
+ul#linesLogos li{ height:77px; list-style:none; display:inline-block; }
 ul#linesLogos li:first-child{ margin:0 30px 0 0; }
 ul#linesLogos li:last-child{ margin:0 0 0 30px; }
 ul#linesLogos li#line{ width:361px; background:url(../images/footerLines.png) no-repeat 0 35px; }
@@ -149,7 +142,7 @@ ul#linesLogos li#logo1{ background:url(../images/logoFooter1.gif) no-repeat; }
 ul#linesLogos li#logo2{ background:url(../images/footerRd.gif) no-repeat; }
 ul#linesLogos li#separator{ width:39px; background:url(../images/separator.gif) no-repeat; }
 ul#infoFooter{ width:auto; display:table; margin:25px auto 0 auto; }
-ul#infoFooter li{ height:auto; list-style:none; display:inline-block; float:left; }
+ul#infoFooter li{ height:auto; list-style:none; display:inline-block;}
 ul#infoFooter li#space{ width:262px; text-align:right; }
 ul#infoFooter li#space img{ margin:-20px 0 0 0; }
 ul#infoFooter li#info{ width:470px; text-align:center; font-size:11px; line-height:16px; }
