@@ -1,10 +1,34 @@
-body{ margin:0 auto; padding:0; background:#DEDEDE; color:#353535; font-family:Arial, Helvetica, sans-serif; }
-*{ margin:0; padding:0; }
+body{ margin:0 auto; padding:0;
+     font-family:'Open Sans', Helvetica, sans-serif; 
+     background: #f3f4f7;
+    }
+
+*{
+    margin: 0;
+    padding: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
 a{ text-decoration:none; }
 *:focus{ outline:none; }
 a:visited{ color:#33C; }
 a:hover{ text-decoration:underline; }
 img{ border:0; }
+
+.btnSesiones{
+    margin: 10px ;
+    padding: 10px ;
+}
+
+.btnSes{
+   background: #284243;
+   padding: 10px;
+   margin: 0 10px;
+   color: #fff;
+   border: #999 solid 1px;
+   border-radius: 5px;
+}
 
 .clr{ clear:both; }
 .clr2{ height:30px; clear:both; }
@@ -13,17 +37,17 @@ img{ border:0; }
 .clr5{ height:25px; clear:both; }
 .clr6{ height:7px; clear:both; }
 
-.bg1{ width:100%; height:auto; display:table; background:url(../images/bg1.jpg) repeat; }
-
+.bg1{ width:100%; height:auto;  }
+.slogan{font-family: 'Dancing Script', cursive; color: #284243; font-size: 26px;margin-top: 85px; margin-left: 20px; text-align: center;}
 /*DIMENSION GENERAL DEL PORTAL*/
 .main-wrapp{ width:1024px; height:auto; display:table; margin:0 auto; }
 /*FIN DIMENSION GENERAL DEL PORTAL*/
-
+.logito{width: 100%; display: flex; flex-direction: row; }
 /*PROPIEDADES DEL HEADER*/
 .headerBox{ width:100%; height:130px; display:table; }
-.logo{ width:520px; height:130px; float:left; }
+.logo{ width:520px; height:130px; float:left;  }
 .logo a{ height:130px; display:block; margin:0; padding:0; }
-.headerBoxBox1{ width:504px; height:130px; display:table; float:left; text-align:right; }
+.headerBoxBox1{ width:300px; height:170px; display:table; float:right; text-align:right; }
 .repDom{ width:100%; height:34px; background:url(../images/repDom.png) no-repeat top right; float:right; margin:20px 0 0 0; }
 .search{ float:right; }
 .pSearch{ width:100%; height:auto; display:table; float:right; margin:5px 0 0 0; }
@@ -42,29 +66,27 @@ img{ border:0; }
 /*FIN PROPIEDADES DEL HEADER*/
 
 /*PROPIEDADES DEL MENU HORIZONTAL*/
-.menu-h{ width:100%; height:47px; background:url(../images/menu-h-bg.gif) no-repeat center; }
-.menu-h-Box{ width:950px; display:table; margin:0 auto; }
-.menu-h ul.menu{ width:auto; margin:14px 0 0 0; }
-.menu-h ul.menu li{ height:20px; padding:0 9px 0 0; margin:0 9px 0 0; list-style:none; display:inline-block; float:left; font-size:16px; border-right:solid #0B4B92 2px; text-transform:uppercase; }
-.menu-h ul.menu li.parent{ background:url(../images/parent.png) no-repeat 97% 3px; padding:0 22px 0 0; }
-.menu-h ul.menu li,
-.menu-h ul.menu li a{ color:#0B4B92; }
-.menu-h ul.menu li.active{ text-decoration:underline; }
-.menu-h ul.menu li a{ display:block; }
-.menu-h ul.menu li:hover ul{ display:block; }
-.menu-h ul.menu li:last-child{ border:0; margin:0; padding:0; }
-.menu-h ul.menu ul{ width:200px; height:auto; display:none; position:absolute; margin:0; padding:10px 0 0 0; z-index:999; }
-.menu-h ul.menu ul li{ height:auto; background:#ECECEC; border-left:solid #BBBBBE 1px; border-right:solid #BBBBBE 1px;  display:block; float:none; border:0; padding:5px 10px; margin:0; border-bottom:solid #0B4B92 1px; }
-.menu-h ul.menu ul li:last-child{ padding:5px 10px; border-bottom:solid #BBBBBE 3px; -webkit-border-radius:0 0 5px 5px; -moz-border-radius:0 0 5px 5px; border-radius:0 0 5px 5px; }
-/*FIN PROPIEDADES DEL MENU HORIZONTAL*/
+.menu-h{ width:100%; height:70px; display: flex; flex-direction: row; background:#284243; align-items: center; justify-content: space-between;}
 
-/*PROPIEDADES DIVISION CONTENIDO*/
-.contentBoxMaster{ width:100%; height:auto; display:table; background:#fff; }
-.contentBoxMasterBox1{ width:994px; height:auto; display:table; margin:15px 15px 15px 15px; }
-.contentMaster{ width:100%; height:auto; display:table; }
-.contentMasterBox1{ width:690px; height:auto; display:table; float:left; margin:0 25px 0 0; }
+.menu-ja a{
+    text-decoration: none;
+    margin-right: 40px;
+    font-size: 18px;
+    margin-left: 10px;
+   
+    color: #fff;
+    height: 25px ;
+}
 /*FIN PROPIEDADES DIVISION CONTENIDO*/
-
+#selector-theme{
+    position: fixed;
+    top:40%;
+    background: rgba(187, 185, 185, 0.5);
+    width: 50px;
+    height: auto;
+    padding: 10px 6px;
+    color: #284243;
+}
 /*PROPIEDADES DE LOS PANELES DE LA DIVISION DE CONTENIDO*/
 .panelSuperior{ width:100%; height:auto; display:table; background:#CCC; margin:0 0 15px 0; }
 .panelIzquierdo,
