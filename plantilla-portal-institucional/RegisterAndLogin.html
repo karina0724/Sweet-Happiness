@@ -2,117 +2,187 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
-<style>
-    body{
-        background: #ddd;
-        font-family: "Raleway";
-    }
-    .tabs {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 500px;
-        height: 250px;
-        background: #f5f5f5;
-        padding: 20px 30px;
-        overflow: hidden;
-        border-radius: 50px;
-        box-shadow: 5px 10px 5px #ccc;
-    }
-    .tabs .tab-header {
-        height: 60px;
-        display:flex;
-        align-items: center;
-    }
-    .tabs .tab-header > div {
-        width:calc(100% / 2);
-        text-align: center;
-        columns: #888;
-        cursor: pointer;
-        font-size: 14px;
-        text-transform: uppercase;
-        outline: none;
-    }
-    .tabs .tab-header > div > i {
-        display: block;
-        margin: 5px;
-    }
-    .tabs .tab-header > div.active {
-        color: #00acee;
-    }
-    .tabs .tab-indicator {
-        position: relative;
-        width: calc(100% / 2);
-        height: 5px;
-        background: #00acee;
-        left: 0px;
-        border-radius: 5px;
-    }
-    .tabs .tab-body {
-        position: relative;
-        width: calc(100% - 60px);
-        padding: 10px 5px;
-    }
-    .tabs .tab-body > div {
-        position: absolute;
-        top: -200%;
-        opacity: 0;
-        margin-top: 5px;
-        transform: opacity 500ms ease-in-out oms,
-            transform 500ms ease-in-out 0ms;
-    }
-    .tabs .tab-body > div.active {
-        top: 0px;
-        opacity: 1;
-        transform: scale(1);
-        margin-top: 0px;
-    }
-</style>
-<script>
-    let tabHeader = document.getElementsByClassName("tab-header")[0];
-    let tabIndicator = document.getElementsByClassName("tab-indicator")[0];
-    let tabBody = document.getElementsByClassName("tab-body")[0];
-    let tabsPane = tabHeader.getElementsByTagName("div");
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  overflow: hidden;
+  padding: 0 10px;
+  background: #17a2b8;
+}
+::selection{
+  background: rgba(23,162,184,0.3);
+}
+.wrapper{
+    max-width: 600px;
+    width: 100%;
+    margin: 10px auto;
+    padding: 25px 25px 25px 25px;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
+}
+.wrapper header{
+  font-size: 30px;
+  font-weight: 600;
+  padding-bottom: 3px;
+}
+.wrapper nav{
+  position: relative;
+  width: 80%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+}
+.wrapper nav label{
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  color: #17a2b8;
+  font-size: 17px;
+  border-radius: 5px;
+  margin: 0 5px;
+  transition: all 0.3s ease;
+}
+.wrapper nav label:hover{
+  background: rgba(23,162,184,0.3);
+}
+#home:checked ~ nav label.home,
+#blog:checked ~ nav label.blog{
+  color: #fff;
+}
+nav label i{
+  padding-right: 7px;
+}
+nav .slider{
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  left: 0;
+  bottom: 0;
+  z-index: 0;
+  border-radius: 5px;
+  background: #17a2b8;
+  transition: all 0.3s ease;
+}
+input[type="radio"]{
+  display: none;
+}
+#blog:checked ~ nav .slider{
+  left: 50%;
+}
+section .content{
+  display: none;
+  background: #fff;
+}
+#home:checked ~ section .content-1,
+#blog:checked ~ section .content-2{
+  display: block;
+}
+section .content .title{
+  font-size: 21px;
+  font-weight: 500;
+  margin: 30px 0 10px 0;
+}
+section .content p{
+text-align: justify;
+}
 
-    for(let i = 0; i<tabsPane.length; i++){
-        tabsPane[i].addEventListener("click", function(){
-            alert("Hola Mundo");
-            tabHeader.getElementsByClassName("active")[0].classList.remove("active");
-            tabsPane[i].classList.add("active");
-            tabBody.getElementsByClassName("active")[0].classList.remove("active");
-            tabBody.getElementsByTagName("div")[i].classList.add("active");
-
-            tabIndicator.style.left = `calc(calc(100% / 2) * ${i})`;
-        });
-    }
-</script>
+  </style>
 <body>
-    <div class="tabs">
-        <div class="tab-header">
-            <div class="active">
-                <i class="fas fa-sign-in-alt"></i> Login
+  <div class="wrapper">
+    <header>Sweet Happiness</header>
+    <input type="radio" name="slider" checked id="home">
+    <input type="radio" name="slider" id="blog">
+    <nav class="text-center">
+      <label for="home" class="home"><i class="fas fa-sign-in-alt"></i>Login</label>
+      <label for="blog" class="blog"><i class="fas fa-user-plus"></i>Registrar</label>
+      <div class="slider"></div>
+    </nav>
+    <section>
+      <div class="content content-1"><br>
+        <form action="">
+            <div class="mb-3 row">
+              <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+              <div class="col-sm-10">
+                <input type="email" class="form-control" id="inputEmail">
+              </div>
             </div>
-            <div>
-                <i class="fas fa-user-plus"></i> Registrarse
+            <div class="mb-3 row">
+              <label for="inputPassword" class="col-sm-2 col-form-label">Contraseña</label>
+              <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword">
+              </div>
             </div>
-        </div>
-        <div class="tab-indicator"></div>
-        <div class="tab-body">
-            <div class="active">
-                <h2>Login</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit possimus labore, in harum tempora veritatis? Ipsam eaque tenetur vero ex sapiente quasi repudiandae officia, velit qui labore ad animi quisquam?</p>
+            <div class="text-center">
+              <button class="btn btn-outline-dark btn-lg btn-block">
+                Entrar
+              </button><br>
             </div>
-            <div>
-                <h2>Registrarse</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit possimus labore, in harum tempora veritatis? Ipsam eaque tenetur vero ex sapiente quasi repudiandae officia, velit qui labore ad animi quisquam?</p>
+        </form>
+      </div>
+      <div class="content content-2"><br>
+        <form>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Provincia</label>
+                <input type="email" class="form-control" id="inputEmail4">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Cedula</label>
+                <input type="text" class="form-control" id="inputPassword4">
+              </div>
             </div>
-        </div>
-    </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">Nombre</label>
+                  <input type="text" class="form-control" id="inputEmail4">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputPassword4">Apellido</label>
+                  <input type="text" class="form-control" id="inputPassword4">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">Telefono</label>
+                  <input type="text" class="form-control" id="inputEmail4">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputPassword4">Celular</label>
+                  <input type="text" class="form-control" id="inputPassword4">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">Correo</label>
+                  <input type="email" class="form-control" id="inputEmail4">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputPassword4">Contraseña</label>
+                  <input type="password" class="form-control" id="inputPassword4">
+                </div>
+              </div>
+            <button type="submit" class="btn btn-outline-dark btn-lg btn-block">Registrarse</button>
+          </form>
+      </div>
+    </section>
+  </div>
+
 </body>
 </html>
