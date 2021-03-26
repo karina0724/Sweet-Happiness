@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background: #ddd;
+        font-family: "Raleway";
+    }
+    .tabs {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 500px;
+        height: 250px;
+        background: #f5f5f5;
+        padding: 20px 30px;
+        overflow: hidden;
+        border-radius: 50px;
+        box-shadow: 5px 10px 5px #ccc;
+    }
+    .tabs .tab-header {
+        height: 60px;
+        display:flex;
+        align-items: center;
+    }
+    .tabs .tab-header > div {
+        width:calc(100% / 2);
+        text-align: center;
+        columns: #888;
+        cursor: pointer;
+        font-size: 14px;
+        text-transform: uppercase;
+        outline: none;
+    }
+    .tabs .tab-header > div > i {
+        display: block;
+        margin: 5px;
+    }
+    .tabs .tab-header > div.active {
+        color: #00acee;
+    }
+    .tabs .tab-indicator {
+        position: relative;
+        width: calc(100% / 2);
+        height: 5px;
+        background: #00acee;
+        left: 0px;
+        border-radius: 5px;
+    }
+    .tabs .tab-body {
+        position: relative;
+        width: calc(100% - 60px);
+        padding: 10px 5px;
+    }
+    .tabs .tab-body > div {
+        position: absolute;
+        top: -200%;
+        opacity: 0;
+        margin-top: 5px;
+        transform: opacity 500ms ease-in-out oms,
+            transform 500ms ease-in-out 0ms;
+    }
+    .tabs .tab-body > div.active {
+        top: 0px;
+        opacity: 1;
+        transform: scale(1);
+        margin-top: 0px;
+    }
+</style>
+<script>
+    let tabHeader = document.getElementsByClassName("tab-header")[0];
+    let tabIndicator = document.getElementsByClassName("tab-indicator")[0];
+    let tabBody = document.getElementsByClassName("tab-body")[0];
+    let tabsPane = tabHeader.getElementsByTagName("div");
+
+    for(let i = 0; i<tabsPane.length; i++){
+        tabsPane[i].addEventListener("click", function(){
+            alert("Hola Mundo");
+            tabHeader.getElementsByClassName("active")[0].classList.remove("active");
+            tabsPane[i].classList.add("active");
+            tabBody.getElementsByClassName("active")[0].classList.remove("active");
+            tabBody.getElementsByTagName("div")[i].classList.add("active");
+
+            tabIndicator.style.left = `calc(calc(100% / 2) * ${i})`;
+        });
+    }
+</script>
+<body>
+    <div class="tabs">
+        <div class="tab-header">
+            <div class="active">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </div>
+            <div>
+                <i class="fas fa-user-plus"></i> Registrarse
+            </div>
+        </div>
+        <div class="tab-indicator"></div>
+        <div class="tab-body">
+            <div class="active">
+                <h2>Login</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit possimus labore, in harum tempora veritatis? Ipsam eaque tenetur vero ex sapiente quasi repudiandae officia, velit qui labore ad animi quisquam?</p>
+            </div>
+            <div>
+                <h2>Registrarse</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit possimus labore, in harum tempora veritatis? Ipsam eaque tenetur vero ex sapiente quasi repudiandae officia, velit qui labore ad animi quisquam?</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
