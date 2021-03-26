@@ -142,15 +142,27 @@ ul#linesLogos li#logo1{ background:url(../images/logoFooter1.gif) no-repeat; }
 ul#linesLogos li#logo2{ background:url(../images/footerRd.gif) no-repeat; }
 ul#linesLogos li#separator{ width:39px; background:url(../images/separator.gif) no-repeat; }
 ul#infoFooter{ width:auto; display:table; margin:25px auto 0 auto; }
-ul#infoFooter li{ height:auto; list-style:none; display:inline-block;}
-ul#infoFooter li#space{ width:262px; text-align:right; }
-ul#infoFooter li#space img{ margin:-20px 0 0 0; }
-ul#infoFooter li#info{ width:470px; text-align:center; font-size:11px; line-height:16px; }
-ul#infoFooter li#info,
-ul#infoFooter li#info a{ color:#0B4B92; }
-ul#infoFooter li#info a{ font-weight:bold; }
-ul#infoFooter li#info span{ display:block; clear:both; }
-ul#infoFooter li#info ul.menu li a{ font-weight:normal; }
-ul#infoFooter li#info ul.menu li{ border-right:solid #0B4B92 1px; padding:0 5px 0 0; margin:0 5px 0 0; }
-ul#infoFooter li#info ul.menu li:last-child{ margin:0; padding:0; border:0; }
+ul#infoFooter { height:auto; list-style:none; display:inline-block;}
+ul#infoFooter #space{ width:262px; text-align:right; }
+ul#infoFooter #space img{ margin:-20px 0 0 0; }
+ul#infoFooter #info{ width:470px; text-align:center; font-size:11px; line-height:16px; }
+ul#infoFooter #info,
+ul#infoFooter #info a{ color:#0B4B92; }
+ul#infoFooter #info a{ font-weight:bold; }
+ul#infoFooter #info span{ display:block; clear:both; }
+ul#infoFooter #info ul.menu li a{ font-weight:normal; }
+ul#infoFooter #info ul.menu li{ border-right:solid #0B4B92 1px; padding:0 5px 0 0; margin:0 5px 0 0; }
+ul#infoFooter #info ul.menu li:last-child{ margin:0; padding:0; border:0; }
+
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* justify-items: center; */
+}
+.footer img{
+    vertical-align: top;
+   
+}
 /*FIN PROPIEDADES DEL PIE DE PAGINA*/
