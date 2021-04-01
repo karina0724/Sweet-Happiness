@@ -102,15 +102,7 @@ img{ border:0; }
     height: 25px ;
 }
 /*FIN PROPIEDADES DIVISION CONTENIDO*/
-#selector-theme{
-    position: fixed;
-    top:40%;
-    background: rgba(187, 185, 185, 0.5);
-    width: 50px;
-    height: auto;
-    padding: 10px 6px;
-    color: #284243;
-}
+
 /*PROPIEDADES DE LOS PANELES DE LA DIVISION DE CONTENIDO*/
 .panelSuperior{ width:100%; height:auto; display:table; background:#CCC; margin:0 0 15px 0; }
 .panelIzquierdo,
