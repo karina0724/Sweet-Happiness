@@ -68,8 +68,7 @@
           <a href="#">Contacto</a>
         </nav>
         <div class="btnSesiones">
-          <button class="btnSes">Iniciar Sesión</button>
-          <button class="btnSes">Registrarse</button>
+          <a href="RegisterAndLogin.php" class="btnSes">Iniciar Sesión</a>
         </div>
 
       </div>

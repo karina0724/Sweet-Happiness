@@ -25,6 +25,10 @@ img{ border:0; }
     padding: 10px ;
 }
 
+.btnSesiones a:visited {
+  color: #CCC;
+}
+
 .btnSes{
    background: #284243;
    padding: 10px;
