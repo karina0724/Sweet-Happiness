@@ -1,3 +1,26 @@
+<?php
+
+include('conexion/config.php');
+include('conexion/conx.php');
+
+if($_POST){
+
+   foreach($_POST as $valor){
+      $valor = addslashes($valor);
+   }
+
+   extract($_POST);
+   
+   $sql = "INSERT INTO `reservadores_huesped`(`cédula`, `nombre`, `apellido`, `teléfono`, `celular`, `correo`, `contraseña`, `rol`) 
+   VALUES ('{$cedula}', '{$nombre}', '{$apellido}', '{$telefono}', '{$celular}', '{$correo}', '{$contraseña}', '3')";
+   
+   conexion::execute($sql);
+
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,7 +139,7 @@ text-align: justify;
     </nav>
     <section>
       <div class="content content-1"><br>
-        <form action="">
+        <form action="" method ="POST">
             <div class="mb-3 row">
               <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
               <div class="col-sm-10">
@@ -137,45 +160,46 @@ text-align: justify;
         </form>
       </div>
       <div class="content content-2"><br>
-        <form>
+        <form  method ="POST">
             <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="inputEmail4">Provincia</label>
-                <input type="email" class="form-control" id="inputEmail4">
+            <div class="form-group col-md-6">
+                <label for="cedula">Cedula</label>
+                <input type="text" name="cedula" class="form-control" id="cedula">
               </div>
               <div class="form-group col-md-6">
-                <label for="inputPassword4">Cedula</label>
-                <input type="text" class="form-control" id="inputPassword4">
+                <label for="provincia">Provincia</label>
+                <input type="text" name="provincia" class="form-control" id="provincia">
               </div>
+              
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputEmail4">Nombre</label>
-                  <input type="text" class="form-control" id="inputEmail4">
+                  <label for="nombre">Nombre</label>
+                  <input type="text" name="nombre" class="form-control" id="nombre">
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputPassword4">Apellido</label>
-                  <input type="text" class="form-control" id="inputPassword4">
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="inputEmail4">Telefono</label>
-                  <input type="text" class="form-control" id="inputEmail4">
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputPassword4">Celular</label>
-                  <input type="text" class="form-control" id="inputPassword4">
+                  <label for="apellido">Apellido</label>
+                  <input type="text" name="apellido" class="form-control" id="apellido">
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputEmail4">Correo</label>
-                  <input type="email" class="form-control" id="inputEmail4">
+                  <label for="telefono">Telefono</label>
+                  <input type="text" name="telefono" class="form-control" id="telefono">
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputPassword4">Contraseña</label>
-                  <input type="password" class="form-control" id="inputPassword4">
+                  <label for="celular">Celular</label>
+                  <input type="text" name="celular" class="form-control" id="celular">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="correo">Correo</label>
+                  <input type="email" name="correo" class="form-control" id="correo">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="contraseña">Contraseña</label>
+                  <input type="password" name="contraseña" class="form-control" id="contraseña">
                 </div>
               </div>
             <button type="submit" class="btn btn-outline-dark btn-lg btn-block">Registrarse</button>
