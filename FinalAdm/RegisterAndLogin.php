@@ -1,3 +1,20 @@
+<?php
+
+  include("libs/conexion.php");
+  include("libs/configx.php");
+  if($_POST){
+    foreach($_POST as &$valor){
+      $valor = addslashes($valor);
+  }
+
+  extract($_POST);
+
+  $sql = "insert into solicitudes (cedula, nombre, apellido, ciudad, curso, comentario) 
+            values ('Juan David Matos','Mi Apellido','{$cedula}','{$celular}','{$celular}','{$celular}')";
+
+  $rsid = conexion::execute($sql, true);
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -137,45 +154,45 @@ text-align: justify;
         </form>
       </div>
       <div class="content content-2"><br>
-        <form>
+        <form method="POST">
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="inputEmail4">Provincia</label>
-                <input type="email" class="form-control" id="inputEmail4">
+                <label for="provincia">Provincia</label>
+                <input type="text" class="form-control" id="provincia" name="provincia">
               </div>
               <div class="form-group col-md-6">
-                <label for="inputPassword4">Cedula</label>
-                <input type="text" class="form-control" id="inputPassword4">
+                <label for="cedula">Cedula</label>
+                <input type="text" class="form-control" id="cedula" name="cedula">
               </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputEmail4">Nombre</label>
-                  <input type="text" class="form-control" id="inputEmail4">
+                  <label for="nombre">Nombre</label>
+                  <input type="text" class="form-control" id="nombre" name="nombre">
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputPassword4">Apellido</label>
-                  <input type="text" class="form-control" id="inputPassword4">
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="inputEmail4">Telefono</label>
-                  <input type="text" class="form-control" id="inputEmail4">
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputPassword4">Celular</label>
-                  <input type="text" class="form-control" id="inputPassword4">
+                  <label for="apellido">Apellido</label>
+                  <input type="text" class="form-control" id="apellido" name="apellido">
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputEmail4">Correo</label>
-                  <input type="email" class="form-control" id="inputEmail4">
+                  <label for="telefono">Telefono</label>
+                  <input type="text" class="form-control" id="telefono" name="telefono">
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputPassword4">Contraseña</label>
-                  <input type="password" class="form-control" id="inputPassword4">
+                  <label for="celular">Celular</label>
+                  <input type="text" class="form-control" id="celular" name="celular">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="email">Correo</label>
+                  <input type="email" class="form-control" id="email" name="email">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="password">Contraseña</label>
+                  <input type="password" class="form-control" id="password" name="password">
                 </div>
               </div>
             <button type="submit" class="btn btn-outline-dark btn-lg btn-block">Registrarse</button>

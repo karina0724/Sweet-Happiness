@@ -1,3 +1,20 @@
+<?php
+
+  include("libs/conexion.php");
+  include("libs/configx.php");
+  if($_POST){
+    foreach($_POST as &$valor){
+      $valor = addslashes($valor);
+  }
+
+  extract($_POST);
+
+  $sql = "insert into solicitudes (cedula, nombre, apellido, ciudad, curso, comentario) 
+            values ('Juan David Matos','Mi Apellido','{$nombre}','{$nombre}','{$nombre}','{$nombre}')";
+
+  $rsid = conexion::execute($sql, true);
+  }
+?>
 <div class="container" style="background-color: #CCC; border-radius: 15px;" class="p-1">
     <div class="text-center text-bold">
         <h2>
@@ -20,7 +37,7 @@
                     <textarea name="asunto" class="form-control mb-1" id="asunto"></textarea>
                 </div>
                 <div class="container text-center">
-                    <button class="btn btn-dark">
+                    <button class="btn btn-dark" type="submit">
                         Enviar
                     </button>
                 </div>
