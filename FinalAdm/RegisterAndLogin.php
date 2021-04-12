@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 include('conexion/config.php');
 include('conexion/conx.php');
 
@@ -21,6 +22,23 @@ if($_POST){
 ?>
 
 
+=======
+  include("libs/conexion.php");
+  include("libs/configx.php");
+  if($_POST){
+    foreach($_POST as &$valor){
+      $valor = addslashes($valor);
+  }
+
+  extract($_POST);
+
+  $sql = "insert into solicitudes (cedula, nombre, apellido, ciudad, curso, comentario) 
+            values ('Juan David Matos','Mi Apellido','{$cedula}','{$celular}','{$celular}','{$celular}')";
+
+  $rsid = conexion::execute($sql, true);
+  }
+?>
+>>>>>>> 27b1a5aec47f1d60a009ddb9d8f5ed0baee3aa78
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -185,21 +203,38 @@ text-align: justify;
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="telefono">Telefono</label>
+<<<<<<< HEAD
                   <input type="text" name="telefono" class="form-control" id="telefono">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="celular">Celular</label>
                   <input type="text" name="celular" class="form-control" id="celular">
+=======
+                  <input type="text" class="form-control" id="telefono" name="telefono">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="celular">Celular</label>
+                  <input type="text" class="form-control" id="celular" name="celular">
+>>>>>>> 27b1a5aec47f1d60a009ddb9d8f5ed0baee3aa78
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
+<<<<<<< HEAD
                   <label for="correo">Correo</label>
                   <input type="email" name="correo" class="form-control" id="correo">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="contraseña">Contraseña</label>
                   <input type="password" name="contraseña" class="form-control" id="contraseña">
+=======
+                  <label for="email">Correo</label>
+                  <input type="email" class="form-control" id="email" name="email">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="password">Contraseña</label>
+                  <input type="password" class="form-control" id="password" name="password">
+>>>>>>> 27b1a5aec47f1d60a009ddb9d8f5ed0baee3aa78
                 </div>
               </div>
             <button type="submit" class="btn btn-outline-dark btn-lg btn-block">Registrarse</button>
