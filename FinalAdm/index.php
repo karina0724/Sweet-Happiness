@@ -91,7 +91,7 @@ var carousel = new bootstrap.Carousel(myCarousel, {
 });
 </script>
 
-<?php inclide("footer.php")?>
+<?php include("footer.php")?>
 
         </div>
         <!--end contentBoxMasterBox1-->

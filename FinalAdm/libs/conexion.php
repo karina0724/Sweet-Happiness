@@ -17,16 +17,11 @@
             mysqli_close($this->myCon);
         }
 
-        public static function execute($sql, $retornarID = false){
+        public static function execute($sql){
             if(self::$instancia == null){
                 self::$instancia = new conexion();
             }
             $rs = mysqli_query(self::$instancia->myCon, $sql);
-            var_dump($retornarID);
-            if($retornarID){
-                $idx = mysqli_insert_id(self::$instancia->myCon);
-                return $idx;
-            }
 
             return $rs;
         }

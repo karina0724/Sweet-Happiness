@@ -58,6 +58,23 @@ img{ border:0; }
     font-weight: 600;
 }
 
+/*Modal*/
+.modal-content{
+    background: #f3f4f7;
+}
+.modal-content .btn{
+    background: #284243;
+    color: #fff;
+}
+.modal-body .foto{
+    text-align: center;
+}
+.logo-modal{
+    height: 160px;
+    vertical-align: top;
+    margin:0 auto;
+}
+
 .clr{ clear:both; }
 .clr2{ height:30px; clear:both; }
 .clr3{ height:50px; clear:both; }
@@ -72,7 +89,7 @@ img{ border:0; }
 /*FIN DIMENSION GENERAL DEL PORTAL*/
 .logito{width: 100%; display: flex; flex-direction: row; }
 /*PROPIEDADES DEL HEADER*/
-.headerBox{ width:100%; height:130px; display:table; }
+.headerBox{ width:100%; height:70px;  }
 .logo{ width:520px; height:130px; float:left;  }
 .logo a{ height:130px; display:block; margin:0; padding:0; }
 .headerBoxBox1{ width:300px; height:170px; display:table; float:right; text-align:right; }

@@ -67,8 +67,68 @@
           <a href="#">Servicios</a>
           <a href="#">Contacto</a>
         </nav>
+
+        <!-- Vertically centered login modal -->
+        <div class="modal" tabindex="-1" role="dialog" id="modalIniciarSesion" aria-labelledby="titulo-modal" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                <div class="foto">
+                  <img src="img/logo.png" class="logo-modal" alt="Sweet Happineess">
+                </div>
+                <form method="POST" class="mb-2">
+                    <div class="form-group">
+                        <label for="email" class="font-weight-bold">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Correo Electrónico" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="font-weight-bold">Contraseña</label>
+                        <input type="password" class="form-control" id="password" placeholder="Contraseña" name="password">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn col-12" style="margin: 5px auto;">Iniciar Sesión</button>
+                    </div>
+                </form>
+                <div class="enlaces mb-2 d-flex flex-column text-center">
+                    <a href="#">¿Olvidaste tu contraseña?</a>
+                    <a href="register.php">Registrarse</a>
+                </div>
+                  
+              </div>
+            </div>
+        </div>
+      <!-- End Vertically centered login modal -->
+
+              <!-- Vertically centered register login modal -->
+              <div class="modal" tabindex="-1" role="dialog" id="modalRegistrarse" aria-labelledby="titulo-modal2" aria-hidden="true">
+                 <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                    <div class="modal-body">
+                    <div class="foto">
+                      <img src="img/logo.png" class="logo-modal" alt="Sweet Happineess">
+                    </div>
+                    <form method="POST" class="mb-2">
+                      <input type="password" class="form-control" id="password" placeholder="Contraseña" name="password">
+                    </form>
+                  <div class="enlaces mb-2 d-flex flex-column text-center">
+                      <a href="#">¿Olvidaste tu contraseña?</a>
+                      <a href="register.php">Registrarse</a>
+                  </div>
+                    
+              </div>
+            </div>
+        </div>
+      <!-- End Vertically centered register login modal -->
+
+
+    
+
+</div>
+
+
         <div class="btnSesiones">
-          <a href="RegisterAndLogin.php" class="btnSes">Iniciar Sesión</a>
+          <button href="#" data-toggle="modal" data-target="#modalIniciarSesion" class="btnSes">Iniciar Sesión</button>
+          <button href="#" data-toggle="modal" data-target="#modalRegistrarse" class="btnSes">Registrarse</button>
         </div>
 
       </div>
