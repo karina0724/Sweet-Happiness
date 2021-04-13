@@ -99,29 +99,7 @@
         </div>
       <!-- End Vertically centered login modal -->
 
-              <!-- Vertically centered register login modal -->
-              <div class="modal" tabindex="-1" role="dialog" id="modalRegistrarse" aria-labelledby="titulo-modal2" aria-hidden="true">
-                 <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                    <div class="modal-body">
-                    <div class="foto">
-                      <img src="img/logo.png" class="logo-modal" alt="Sweet Happineess">
-                    </div>
-                    <form method="POST" class="mb-2">
-                      <input type="password" class="form-control" id="password" placeholder="Contraseña" name="password">
-                    </form>
-                  <div class="enlaces mb-2 d-flex flex-column text-center">
-                      <a href="#">¿Olvidaste tu contraseña?</a>
-                      <a href="register.php">Registrarse</a>
-                  </div>
-                    
-              </div>
-            </div>
-        </div>
-      <!-- End Vertically centered register login modal -->
-
-
-    
+                
 
 </div>
 
