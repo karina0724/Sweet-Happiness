@@ -62,7 +62,7 @@
       <div class="menu-h">
 
         <nav class="menu-ja">
-          <a href="#">Inicio</a>
+          <a href="index.php">Inicio</a>
           <a href="#">Sobre Nosotros</a>
           <a href="#">Servicios</a>
           <a href="#">Contacto</a>
@@ -98,11 +98,9 @@
             </div>
         </div>
       <!-- End Vertically centered login modal -->
-
-                
+               
 
 </div>
-
 
         <div class="btnSesiones">
           <button href="#" data-toggle="modal" data-target="#modalIniciarSesion" class="btnSes">Iniciar Sesión</button>
