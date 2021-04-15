@@ -1,26 +1,34 @@
-<div id="selector-theme">
-  <div id="to-green">
-    <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
-  </div>
-  <div id="to-red">
-    <a href="https://www.instagram.com" target="_blank" style="
-     color: rgb(187, 34, 72);
-    " ;><i class="fab fa-instagram fa-2x mt-2"></i></a>
-  </div>
-  <div id="to-blue">
-    <a href="https://twitter.com/?lang=es" target="_blank" style="color: rgb(0, 196, 245);"><i
-        class="fab fa-twitter fa-2x mt-2"></i></a>
-  </div>
-</div>
+	<div class="social">
+		<a href="#"><i class="fab fa-facebook fa-2x" style="color: #006CF5;"></i></a>
+		<a href="#"><i
+        class="fab fa-twitter fa-2x mt-2" style="color:#4B9AFF;"></i></a>
+		<a href="#"><i class="fab fa-instagram fa-2x mt-2" style="color:#C33333;"></i></a>
+	</div>
 
 <style>
-    #selector-theme{
-        position: fixed;
-        top:40%;
-        background: rgba(187, 185, 185, 0.5);
-        width: 50px;
-        height: auto;
-        padding: 10px 3px;
-        color: #284243;
-    }
+
+.container{
+  width:95%;
+  max-width:900px;
+  margin:auto;
+}
+
+.social{
+  /*las imágenes usadas tienen width de 48px*/
+  width:48px;
+  position:fixed;
+  top:50px;
+  right:0;
+}
+
+/* Extra centrado vertical*/
+
+.social{
+  /*border:1px solid #000;*/
+  top:50%;
+  height:205px;
+  /*para poner height 192 deberíamos haber indicado en el reset de estilos font-size:0;*/
+  margin-top:-100px;
+}
+
 </style>

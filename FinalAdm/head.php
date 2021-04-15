@@ -112,20 +112,9 @@
                case 3:?>
                     <nav class="menu-ja">
                         <a href="index.php">Inicio</a>
-                        <a href="#">Sobre Nosotros</a>
-                        <a href="#" class="dropdown">
-                            <a class="dropdown-toggle" type="button" style="margin-left:0;" id="dropdownMenu2"
-                                data-toggle="dropdown">
-                                Servicios
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                <button class="dropdown-item" type="button">Consultar Hoteles</button>
-                                <button class="dropdown-item" type="button">Solicitar Reservación</button>
-                                <button class="dropdown-item" type="button">Historial de Reservaciones</button>
-                            </div>
-
-                        </a>
-                        <a href="#">Contacto</a>
+                        <a href="#">Reservar Habitaciones</a>
+                        <a href="#">Consultar Estado</a>
+                        <a href="#">Pago</a>
                     </nav><?php
                  break;
                case 4:?>
