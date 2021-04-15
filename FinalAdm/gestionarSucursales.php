@@ -142,6 +142,9 @@ ob_end_flush();
         </div>
       <!-- End Vertically centered edit login modal -->
 </div>
+<script>
+  
+</script>
 
 <?php include("footer.php")?>
 
