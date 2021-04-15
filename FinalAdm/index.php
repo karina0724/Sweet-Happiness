@@ -106,7 +106,7 @@ var carousel = new bootstrap.Carousel(myCarousel, {
 
 </body>
 <?php 
-    include("contactanos.php");
+if(isset($_SESSION['rol']) != 1){include("contactanos.php");}
     include("footer.php");
 ?>
 </html>

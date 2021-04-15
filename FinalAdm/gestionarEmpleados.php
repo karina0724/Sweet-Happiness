@@ -12,6 +12,10 @@ include('head.php');
  }
 ?>
 
+<?php
+    if(isset($_SESSION['initialization_sistem'])){
+        if(isset($_SESSION['admin']) == 1){
+?>
 <div style="max-width: 80%;" class="container">
 <?php  ?> <br> <br>
 
@@ -68,5 +72,25 @@ include('head.php');
 <!--end bg1-->
 
 </body>
+<?php }else{
+    echo "
+    <br><br>
+    <div class='container col-md-6'>
+        <div class='alert alert-danger' role='alert'>
+            No eres Administrador
+        </div>
+    </div>
+    <br>
+  ";
+} 
+}else { echo "
+    <br><br>
+    <div class='container col-md-6'>
+        <div class='alert alert-danger' role='alert'>
+            Tienes que registrarte
+        </div>
+    </div>
+    <br>
+  "; } ?>
 
 <?php include("footer.php")?>
