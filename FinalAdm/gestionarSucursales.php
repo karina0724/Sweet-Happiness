@@ -10,31 +10,19 @@ $fecha= (new DateTime())->format('Y/m/d H:i:s');
      $sql = "delete from sucursales where id = {$id}";
      $rs = conexion::execute($sql);
 
-     $sql2 = "INSERT INTO log_huesped(usuario_operario, usuario_afectado, accion, fecha_hora) VALUES ('Administrador', 'Sucursal', 'Eliminó Sucursal ({$id})', '{$fecha}')";
+     $sql2 = "INSERT INTO log_huesped(usuario_operario, usuario_afectado, accion, fecha_hora) VALUES ('Administrador', 'Sucursal', 'Eliminó Sucursal ({$id})', {$fecha})";
      $rs = conexion::execute($sql2);
  }
 
  if($_POST){
     extract($_POST);
- 
-      if(isset($_GET['edit'])){
-
-        $id = $_GET['edit'];
-        $sql="update sucursales set direccion = '{$direccion}', provincia = '{$provincia}' where id= '{$id}'";
-        
-        $rs = conexion::execute($sql); 
-        
-        $sql2 = "INSERT INTO log_huesped(usuario_operario, usuario_afectado, accion, fecha_hora) VALUES ('Administrador', 'Sucursal', 'Modificó Surcursal ('{$id}')', '{$fecha}')";
-        $rs = conexion::execute($sql2);
-      }
-      else{
             
             $sql = "INSERT INTO sucursales(direccion, provincia) VALUES ('{$direccion}', '{$provincia}')";
             $rs = conexion::execute($sql);
 
             $sql2 = "INSERT INTO log_huesped(usuario_operario, usuario_afectado, accion, fecha_hora) VALUES ('Administrador', 'Sucursal', 'Agregó Sucursal', '{$fecha}')";
             $rs = conexion::execute($sql2);
-      }
+      
       header("Location: gestionarSucursales.php"); 
  }
 
@@ -78,7 +66,7 @@ ob_end_flush();
                       <td>{$data['direccion']}</td>
                       <td>
                             <a class='btn btn-danger'href='gestionarSucursales.php?del={$data['id']}' style='margin-right: 20px; width:100px;color:white;'>Eliminar</a>
-                            <a href='gestionarSucursales.php?edit={$data['id']}' data-toggle='modal' data-target='#modalEditarSucursal' class='btn btn-success'>Editar</a>
+                            <a class='btn btn-success'href='editarSucursales.php?edit={$data['id']}' style='margin-right: 20px; width:100px;color:white;'>Editar</a>
                          </td>
                    </tr>
                 ";
@@ -113,6 +101,21 @@ ob_end_flush();
                             </div>
                         </form>
                     </div>
+<<<<<<< HEAD
+                    <div class="text-center">
+                        <button type="submit" class="btn col-12" style="margin: 5px auto;">Guardar</button>
+                    </div>
+                </form>    
+              </div>
+            </div>
+        </div>
+      <!-- End Vertically centered login modal -->
+  
+</div>
+
+<?php include("footer.php")?>
+
+=======
                 </div>
             </div>
             <!-- End Vertically centered login modal -->
@@ -157,6 +160,7 @@ ob_end_flush();
 </div>
 </div>
 <!--end bg1-->
+>>>>>>> def93af5469cc51f3d04eea6b174cc7f45ae22cc
 
 </body>
 
