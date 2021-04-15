@@ -1,4 +1,4 @@
- <?php include("header.php");
+ <?php include("head.php");
  
     if(isset($_GET['del'])){
         $sql = "delete from empleados where id = {$_GET['del']}";
@@ -6,7 +6,7 @@
     }
 
  ?>
-.$_GET['del']
+
 <div class="container" style="max-width: 90%; margin-top:50px;">
     <h2>Empleados</h2>
      <a href="agregarEmpleado.php" class="btn btn-secondary" style="margin-top:25px; width:250px;">Añadir Empleado</a>

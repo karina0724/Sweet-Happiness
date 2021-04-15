@@ -1,6 +1,6 @@
 <?php
     
-    include("header.php");
+    include("head.php");
 
     if($_POST){
         foreach($_POST as &$valor){
