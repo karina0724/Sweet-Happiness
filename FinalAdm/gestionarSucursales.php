@@ -1,6 +1,7 @@
 <?php 
 ob_start();
-
+include('head.php');
+include('redes.php');
 $fecha= (new DateTime())->format('Y/m/d H:i:s'); 
  if(isset($_GET['del'])){
 
@@ -50,7 +51,7 @@ $fecha= (new DateTime())->format('Y/m/d H:i:s');
 ob_end_flush();
 ?>
 <div style="max-width: 80%;" class="container">
-    <?php include('head.php'); ?> <br> <br>
+    <?php  ?> <br> <br>
 
     <div class="container col-md-7">
         <h2>Sucursales</h2>

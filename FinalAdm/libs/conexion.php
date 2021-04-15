@@ -1,6 +1,7 @@
 <?php
 
-    class conexion{
+    
+class conexion{
 
         public $myCon = null;
 

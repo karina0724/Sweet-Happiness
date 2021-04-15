@@ -1,5 +1,6 @@
 <?php 
- 
+include('head.php');
+ include('redes.php');
  if(isset($_GET['del'])){
 
      $sql = "delete from empleados where id = {$_GET['del']}";
@@ -12,7 +13,7 @@
 ?>
 
 <div style="max-width: 80%;" class="container">
-<?php include('head.php'); ?> <br> <br>
+<?php  ?> <br> <br>
 
 <div>
  <h2>Empleados</h2>

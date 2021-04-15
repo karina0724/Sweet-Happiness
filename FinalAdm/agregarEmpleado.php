@@ -39,7 +39,7 @@ if(isset($_GET['edit'])){
 }
 ob_end_flush();
 ?>
-
+<div style="max-width: 80%;" class="container">
 <div class="container d-flex flex-row justify-content-between" style="margin-top:50px;" >
     <h2>Registro de Empleados</h2>
      <a href="gestionarEmpleados.php" class="btn btn-secondary" style="color:white; width:250px; font-size: 18px;">Consultar Empleados</a>
@@ -147,6 +147,7 @@ ob_end_flush();
                 </div>
             </form>
       
+</div>
 </div>
 
 

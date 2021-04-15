@@ -1,11 +1,11 @@
 <?php
+include('head.php');
 include('redes.php');
 
 ?>
 <!--end menu-h-->
 
 <div style="max-width: 80%;" class="container">
-<?php include('head.php'); ?>
 <div class="contentBoxMaster">
     <div class="contentBoxMasterBox1">
         <div class="contentMaster">
