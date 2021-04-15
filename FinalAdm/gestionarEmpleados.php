@@ -9,7 +9,6 @@
         $sql2 = "INSERT INTO log_huesped(usuario_operario, usuario_afectado, accion, fecha_hora) VALUES ('Administrador', 'Empleado', 'Eliminó Empleado', '{$fecha}')";
         $rs = conexion::execute($sql2);
     }
-
  ?>
 
 <div class="container" style="max-width: 90%; margin-top:50px;">

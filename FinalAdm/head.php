@@ -80,7 +80,7 @@
               <nav class="menu-ja">
                   <a href="index.php">Inicio</a>
                   <a href="gestionarEmpleados.php">Gestionar Empleados</a>
-                  <a href="#">Gestionar Sucursales</a>
+                  <a href="gestionarSucursales.php">Gestionar Sucursales</a>
                   <a href="log_eventos.php">Log de Eventos</a>
               </nav><?php
                 break;
