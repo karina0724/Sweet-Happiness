@@ -1,23 +1,24 @@
-<?php 
-include("head.php");
-?>
+<?php
+include('redes.php');
 
-<div class="container" style="max-width: 90%; margin-top:50px;">
-    <h2>Log de Eventos</h2>
-</div>
-<div style="max-width: 90%; margin:50px auto; margin-bottom: 250px;">
-       <table class="table table-hover">
-       <thead>
-           <tr>
-               <th scope="col">Fecha - Hora</th>
-               <th scope="col">Usuario Operario</th>
-               <th scope="col">Usuario Afectado</th>
-               <th scope="col">Acción Realizada</th>
-           </tr>
-       </thead>
-       <tbody>
-  
-           <?php 
+?>
+<!--end menu-h-->
+
+<div style="max-width: 80%;" class="container">
+<?php include('head.php'); ?> <br> <br>
+
+<h2 class="text-dark">Log de Eventos</h2>
+<table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Fecha - Hora</th>
+                <th scope="col">Usuario Operario</th>
+                <th scope="col">Campo Afectado</th>
+                <th scope="col">Acción Realizada</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php 
                $sql = "SELECT * FROM log_huesped";
                $rs = conexion::query_array($sql);
 
@@ -32,11 +33,19 @@ include("head.php");
                       </tr>
                    ";
                }
-           ?>
-       </tbody>
-       </table>
+?> 
+        </tbody>
+    </table>
+   <hr>
+       
 </div>
+</div>
+<!--end contacto-->
+</div>
+<!--end bg1-->
 
-<?php
-include("footer.php")
-?>
+</body>
+<?php include("footer.php")?>
+</html>
+
+
