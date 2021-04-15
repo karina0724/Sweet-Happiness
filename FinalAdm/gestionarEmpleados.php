@@ -48,8 +48,8 @@ include('head.php');
                       <td>{$data['correo']}</td>
                       <td>{$data['rol_hotel']}</td>
                       <td>
-                         <a class='btn btn-danger'href='gestionarEmpleados.php?del={$data['id']}' style='width:100px;color:white;'>Eliminar</a>
-                         <a href='agregarEmpleado.php?edit={$data['id']}' class='btn btn-success' style='width:100px;color:white;'>Editar</a>
+                         <a class='btn btn-danger'href='gestionarEmpleados.php?del={$data['id']}' style='color:white;'>Eliminar</a>
+                         <a href='agregarEmpleado.php?edit={$data['id']}' class='btn btn-success' style='color:white;'>Editar</a>
                       </td>
                    </tr>
                 ";
