@@ -1,19 +1,22 @@
-<?php include("head.php");
- 
+<?php 
+ob_start();
+include("head.php");
+
+$fecha= (new DateTime())->format('Y/m/d H:i:s'); 
  if(isset($_GET['del'])){
 
-     $sql = "delete from sucursales where id = {$_GET['del']}";
+    $id = $_GET['del'];
+
+     $sql = "delete from sucursales where id = {$id}";
      $rs = conexion::execute($sql);
 
-     $fecha= (new DateTime())->format('Y/m/d H:i:s'); 
-     $sql2 = "INSERT INTO log_huesped(usuario_operario, usuario_afectado, accion, fecha_hora) VALUES ('Administrador', 'Sucursal ('{$_GET['del']}')', 'Eliminó Sucursal', '{$fecha}')";
+     $sql2 = "INSERT INTO log_huesped(usuario_operario, usuario_afectado, accion, fecha_hora) VALUES ('Administrador', 'Sucursal', 'Eliminó Sucursal ({$id})', '{$fecha}')";
      $rs = conexion::execute($sql2);
  }
 
  if($_POST){
     extract($_POST);
-    $fecha= (new DateTime())->format('Y/m/d H:i:s'); 
-
+ 
       if(isset($_GET['edit'])){
 
         $id = $_GET['edit'];
@@ -21,25 +24,36 @@
         
         $rs = conexion::execute($sql); 
         
-        $sql2 = "INSERT INTO log_huesped(usuario_operario, usuario_afectado, accion, fecha_hora) VALUES ('Administrador', 'Empleado', 'Modificó Empleado', '{$fecha}')";
+        $sql2 = "INSERT INTO log_huesped(usuario_operario, usuario_afectado, accion, fecha_hora) VALUES ('Administrador', 'Sucursal', 'Modificó Surcursal ('{$id}')', '{$fecha}')";
         $rs = conexion::execute($sql2);
       }
       else{
-            $sql = "INSERT INTO empleados(id_sucursales, cédula, nombre, apellido, teléfono, celular, correo, contraseña, rol_hotel, rol) VALUES ('{$sucursal}','{$cedula}','{$nombre}','{$apellido}','{$telefono}','{$celular}','{$correo}','{$contraseña}','{$rolHotel}','2')";
-
+            
+            $sql = "INSERT INTO sucursales(direccion, provincia) VALUES ('{$direccion}', '{$provincia}')";
             $rs = conexion::execute($sql);
 
-            $sql2 = "INSERT INTO log_huesped(usuario_operario, usuario_afectado, accion, fecha_hora) VALUES ('Administrador', 'Empleado', 'Agregó Empleado', '{$fecha}')";
+            $sql2 = "INSERT INTO log_huesped(usuario_operario, usuario_afectado, accion, fecha_hora) VALUES ('Administrador', 'Sucursal', 'Agregó Sucursal', '{$fecha}')";
             $rs = conexion::execute($sql2);
       }
-      header("Location: gestionarEmpleados.php"); 
+      header("Location: gestionarSucursales.php"); 
  }
 
+ if(isset($_GET['edit'])){
+ 
+    $sql= "select * from sucursales where id= ". $_GET['edit'];
+    $rs = conexion::query_array($sql);
+
+    if(count($rs) > 0){
+        $data = $rs[0];
+        $_POST= $data;  
+    }
+}
+ob_end_flush();
 ?>
 
 <div class="container" style="max-width: 90%; margin-top:50px;">
  <h2>Sucursales</h2>
- <button data-toggle='modal' data-target='#modalRegistrarSucursal' class='btn btn-secondary' style="margin-top:25px; width:250px;color:white;">Nueva Sucursal</button>
+ <button data-toggle='modal'data-target='#modalRegistrarSucursal' class='btn btn-secondary' style="margin-top:25px; width:250px;color:white;">Nueva Sucursal</button>
 
 </div>
 <div style="max-width: 90%; margin:50px auto; margin-bottom: 250px;">
@@ -65,7 +79,7 @@
                       <td>{$data['direccion']}</td>
                       <td>
                             <a class='btn btn-danger'href='gestionarSucursales.php?del={$data['id']}' style='margin-right: 20px; width:100px;color:white;'>Eliminar</a>
-                            <button data-toggle='modal' data-target='#modalRegistrarSucursal' class='btn btn-success'>Editar</button>
+                            <a href='gestionarSucursales.php?edit={$data['id']}' data-toggle='modal' data-target='#modalEditarSucursal' class='btn btn-success'>Editar</a>
                          </td>
                    </tr>
                 ";
@@ -75,7 +89,7 @@
     </tbody>
     </table>
 
-     <!-- Vertically centered login modal -->
+     <!-- Vertically centered insert modal -->
      <div class="modal" tabindex="-1" role="dialog" id="modalRegistrarSucursal" aria-labelledby="titulo-modal2" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -83,14 +97,14 @@
                 <div class="foto">
                   <img src="img/logo.png" class="logo-modal" alt="Sweet Happineess">
                 </div>
-                <form method="POST" class="mb-2" action="loguear.php">
-                    <div class="form-group">
-                        <label for="provincia" class="font-weight-bold">Provincia</label>
-                        <input type="text" class="form-control" id="provincia" placeholder="Provincia" name="provincia">
-                    </div>
+                <form method="POST" class="mb-2">
                     <div class="form-group">
                         <label for="password" class="font-weight-bold">Dirección</label>
-                        <input type="text" class="form-control" id="direccion" placeholder="Dirección" name="direccion">
+                        <input type="text" class="form-control" id="direccion" value="<?php echo $_POST['direccion']?>" placeholder="Dirección" name="direccion">
+                    </div>
+                    <div class="form-group">
+                        <label for="provincia" class="font-weight-bold">Provincia</label>
+                        <input type="text" class="form-control" id="provincia" value="<?php echo $_POST['provincia']?>" placeholder="Provincia" name="provincia">
                     </div>
                     <div class="text-center">
                         <button type="submit" class="btn col-12" style="margin: 5px auto;">Guardar</button>
@@ -100,8 +114,34 @@
             </div>
         </div>
       <!-- End Vertically centered login modal -->
-</div>
 
+
+       <!-- Vertically centered update modal -->
+     <div class="modal" tabindex="-1" role="dialog" id="modalEditarSucursal" aria-labelledby="titulo-modal2" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                <div class="foto">
+                  <img src="img/logo.png" class="logo-modal" alt="Sweet Happineess">
+                </div>
+                <form method="POST" class="mb-2">
+                    <div class="form-group">
+                        <label for="password" class="font-weight-bold">Dirección</label>
+                        <input type="text" class="form-control" id="direccion" value="<?php echo $_POST['direccion']?>" placeholder="Dirección" name="direccion">
+                    </div>
+                    <div class="form-group">
+                        <label for="provincia" class="font-weight-bold">Provincia Edi</label>
+                        <input type="text" class="form-control" id="provincia" value="<?php echo $_POST['provincia']?>" placeholder="Provincia" name="provincia">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn col-12" style="margin: 5px auto;">Guardar</button>
+                    </div>
+                </form>    
+              </div>
+            </div>
+        </div>
+      <!-- End Vertically centered edit login modal -->
+</div>
 
 <?php include("footer.php")?>
 
