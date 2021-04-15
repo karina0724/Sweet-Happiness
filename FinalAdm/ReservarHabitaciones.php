@@ -1,57 +1,55 @@
 <?php
 include('head.php'); 
+if($_POST){
+    extract($_POST);
+
+    $sql2 = "INSERT INTO reservaciones_habitaciones(id_habitaciones, id_HReservador, id_sucursales, fecha_inicio, fecha_fin, monto_total) 
+    VALUES ('{$habitaciones}', '{$provincia}', '{$fechaIni}', '{$fechaFin}', '${monto}')";
+    $rs = conexion::execute($sql2);
+}
 if(isset($_SESSION['initialization_sistem'])){
     if(isset($_SESSION['rol']) == 3 || isset($_SESSION['rol']) == 1){
+        
 ?>
-<div style="max-">
-    <form>
+<br>
+<div class=" container col-md-9"><br>
+    <h2>Reservar Habitación</h2>
+    <form method="POST">
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="inputEmail4">Email</label>
-                <input type="email" class="form-control" id="inputEmail4">
+                <label for="habitaciones">Habitaciones</label>
+                <input type="text" class="form-control" id="habitaciones" name="habitaciones">
             </div>
             <div class="form-group col-md-6">
-                <label for="inputPassword4">Password</label>
-                <input type="password" class="form-control" id="inputPassword4">
+                <label for="provincia">Provincia</label>
+                <input type="text" class="form-control" id="provincia" name="provincia">
             </div>
         </div>
         <div class="form-group">
-            <label for="inputAddress">Address</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            <label for="fechaIni">Fecha de inicio</label>
+            <input type="date" class="form-control" id="fechaIni" name="fechaIni" placeholder="Fecha Inicio">
         </div>
         <div class="form-group">
-            <label for="inputAddress2">Address 2</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="inputCity">City</label>
-                <input type="text" class="form-control" id="inputCity">
-            </div>
-            <div class="form-group col-md-4">
-                <label for="inputState">State</label>
-                <select id="inputState" class="form-control">
-                    <option selected>Choose...</option>
-                    <option>...</option>
-                </select>
-            </div>
-            <div class="form-group col-md-2">
-                <label for="inputZip">Zip</label>
-                <input type="text" class="form-control" id="inputZip">
-            </div>
+            <label for="fechaFin">Fecha Final</label>
+            <input type="date" class="form-control" id="fechaFin" name="fechaFin" placeholder="Fecha Final">
         </div>
         <div class="form-group">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
-                    Check me out
-                </label>
-            </div>
+            <label for="monto">Monto total 10%</label>
+            <input type="number" class="form-control" id="monto" name="monto" placeholder="Monto">
         </div>
-        <button type="submit" class="btn btn-primary">Sign in</button>
+        <div class="text-center">
+            <button type="submit" class="btn btn-dark btn-lg btn-block">Reservar</button>
+        </div>
     </form>
 </div>
 <?php
     }
+} else {
+    echo "
+    <br><br>
+    <h1>No te haz registrado</h1>
+    ";
 }
+
+include("footer.php")
 ?>
