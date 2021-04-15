@@ -1,4 +1,4 @@
-<?php include("head.php");
+<?php 
  
  if(isset($_GET['del'])){
 
@@ -11,11 +11,13 @@
  }
 ?>
 
-<div class="container" style="max-width: 90%; margin-top:50px;">
+<div style="max-width: 80%;" class="container">
+<?php include('head.php'); ?> <br> <br>
+
+<div>
  <h2>Empleados</h2>
   <a href="agregarEmpleado.php" class="btn btn-secondary" style="margin-top:25px; width:250px;color:white;">Añadir Empleado</a>
-</div>
-<div style="max-width: 90%; margin:50px auto; margin-bottom: 250px;">
+
     <table class="table table-hover">
     <thead>
         <tr>
@@ -45,7 +47,7 @@
                       <td>{$data['correo']}</td>
                       <td>{$data['rol_hotel']}</td>
                       <td>
-                         <a class='btn btn-danger'href='gestionarEmpleados.php?del={$data['id']}' style='margin-right: 20px; width:100px;color:white;'>Eliminar</a>
+                         <a class='btn btn-danger'href='gestionarEmpleados.php?del={$data['id']}' style='width:100px;color:white;'>Eliminar</a>
                          <a href='agregarEmpleado.php?edit={$data['id']}' class='btn btn-success' style='width:100px;color:white;'>Editar</a>
                       </td>
                    </tr>
@@ -55,7 +57,15 @@
         ?>
     </tbody>
     </table>
+   <hr>
+   </div>
+       
 </div>
+</div>
+<!--end contacto-->
+</div>
+<!--end bg1-->
 
+</body>
 
 <?php include("footer.php")?>
