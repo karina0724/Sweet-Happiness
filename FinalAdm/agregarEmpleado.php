@@ -14,7 +14,7 @@ if($_POST){
         
         $rs = conexion::execute($sql); 
         
-        $sql2 = "INSERT INTO log_huesped(usuario_operario, usuario_afectado, accion, fecha_hora) VALUES ('Administrador', 'Empleado ('{$id}'), 'Modificó Empleado', '{$fecha}')";
+        $sql2 = "INSERT INTO log_huesped(usuario_operario, usuario_afectado, accion, fecha_hora) VALUES ('Administrador', 'Empleado', 'Modificó Empleado', '{$fecha}')";
         $rs = conexion::execute($sql2);
       }
       else{
@@ -113,7 +113,7 @@ ob_end_flush();
                                 foreach($rs as $data)
                                 {
                                    echo "
-                                      <option value='{$data['nombre']}'>{$data['nombre']}</option>
+                                      <option value='{$data['id']}'>{$data['provincia']}</option>
                                    ";
                                 }
                             }
