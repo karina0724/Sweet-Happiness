@@ -29,7 +29,7 @@
         <?php
 
     session_start();
-    if($_SESSION['initialization_sistem']){
+    if(isset($_SESSION['initialization_sistem'])){
      
 ?>
         <div class="bg1">
