@@ -92,7 +92,7 @@
                  ?>
                     <nav class="menu-ja">
                         <a href="index.php">Inicio</a>
-                        <a href="#">Gestionar Huéspedes</a>
+                        <a href="gestionarHuespedes.php">Gestionar Huéspedes</a>
                         <a href="#">Consultar Hoteles</a>
                     </nav>
                     <?php
