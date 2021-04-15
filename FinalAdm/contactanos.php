@@ -1,7 +1,5 @@
 <?php
 
-  include("libs/conexion.php");
-  include("libs/configx.php");
   if($_POST){
     foreach($_POST as &$valor){
       $valor = addslashes($valor);

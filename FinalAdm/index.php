@@ -105,5 +105,8 @@ var carousel = new bootstrap.Carousel(myCarousel, {
 <!--end bg1-->
 
 </body>
-<?php include("footer.php")?>
+<?php 
+    include("contactanos.php");
+    include("footer.php");
+?>
 </html>

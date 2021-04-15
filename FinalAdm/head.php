@@ -93,8 +93,7 @@
                     <nav class="menu-ja">
                         <a href="index.php">Inicio</a>
                         <a href="#">Gestionar Huéspedes</a>
-                        <a href="#">Consultar Sucursales</a>
-                        <a href="#">Consular Habitaciones</a>
+                        <a href="#">Consultar Hoteles</a>
                     </nav>
                     <?php
                }else if($_SESSION['rol-hotel'] == 'Contador'){
