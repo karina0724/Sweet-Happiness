@@ -10,31 +10,19 @@ $fecha= (new DateTime())->format('Y/m/d H:i:s');
      $sql = "delete from sucursales where id = {$id}";
      $rs = conexion::execute($sql);
 
-     $sql2 = "INSERT INTO log_huesped(usuario_operario, usuario_afectado, accion, fecha_hora) VALUES ('Administrador', 'Sucursal', 'Eliminó Sucursal ({$id})', '{$fecha}')";
+     $sql2 = "INSERT INTO log_huesped(usuario_operario, usuario_afectado, accion, fecha_hora) VALUES ('Administrador', 'Sucursal', 'Eliminó Sucursal ({$id})', {$fecha})";
      $rs = conexion::execute($sql2);
  }
 
  if($_POST){
     extract($_POST);
- 
-      if(isset($_GET['edit'])){
-
-        $id = $_GET['edit'];
-        $sql="update sucursales set direccion = '{$direccion}', provincia = '{$provincia}' where id= '{$id}'";
-        
-        $rs = conexion::execute($sql); 
-        
-        $sql2 = "INSERT INTO log_huesped(usuario_operario, usuario_afectado, accion, fecha_hora) VALUES ('Administrador', 'Sucursal', 'Modificó Surcursal ('{$id}')', '{$fecha}')";
-        $rs = conexion::execute($sql2);
-      }
-      else{
             
             $sql = "INSERT INTO sucursales(direccion, provincia) VALUES ('{$direccion}', '{$provincia}')";
             $rs = conexion::execute($sql);
 
             $sql2 = "INSERT INTO log_huesped(usuario_operario, usuario_afectado, accion, fecha_hora) VALUES ('Administrador', 'Sucursal', 'Agregó Sucursal', '{$fecha}')";
             $rs = conexion::execute($sql2);
-      }
+      
       header("Location: gestionarSucursales.php"); 
  }
 
@@ -79,7 +67,7 @@ ob_end_flush();
                       <td>{$data['direccion']}</td>
                       <td>
                             <a class='btn btn-danger'href='gestionarSucursales.php?del={$data['id']}' style='margin-right: 20px; width:100px;color:white;'>Eliminar</a>
-                            <a href='gestionarSucursales.php?edit={$data['id']}' data-toggle='modal' data-target='#modalEditarSucursal' class='btn btn-success'>Editar</a>
+                            <a class='btn btn-success'href='editarSucursales.php?edit={$data['id']}' style='margin-right: 20px; width:100px;color:white;'>Editar</a>
                          </td>
                    </tr>
                 ";
@@ -114,37 +102,8 @@ ob_end_flush();
             </div>
         </div>
       <!-- End Vertically centered login modal -->
-
-
-       <!-- Vertically centered update modal -->
-     <div class="modal" tabindex="-1" role="dialog" id="modalEditarSucursal" aria-labelledby="titulo-modal2" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body">
-                <div class="foto">
-                  <img src="img/logo.png" class="logo-modal" alt="Sweet Happineess">
-                </div>
-                <form method="POST" class="mb-2">
-                    <div class="form-group">
-                        <label for="password" class="font-weight-bold">Dirección</label>
-                        <input type="text" class="form-control" id="direccion" value="<?php echo $_POST['direccion']?>" placeholder="Dirección" name="direccion">
-                    </div>
-                    <div class="form-group">
-                        <label for="provincia" class="font-weight-bold">Provincia Edi</label>
-                        <input type="text" class="form-control" id="provincia" value="<?php echo $_POST['provincia']?>" placeholder="Provincia" name="provincia">
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="btn col-12" style="margin: 5px auto;">Guardar</button>
-                    </div>
-                </form>    
-              </div>
-            </div>
-        </div>
-      <!-- End Vertically centered edit login modal -->
-</div>
-<script>
   
-</script>
+</div>
 
 <?php include("footer.php")?>
 
