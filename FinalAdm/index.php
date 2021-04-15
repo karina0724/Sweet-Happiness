@@ -1,9 +1,11 @@
 <?php
 include('redes.php');
-include('header.php');
+
 ?>
 <!--end menu-h-->
 
+<div style="max-width: 80%;" class="container">
+<?php include('header.php'); ?>
 <div class="contentBoxMaster">
     <div class="contentBoxMasterBox1">
         <div class="contentMaster">
@@ -80,9 +82,14 @@ include('header.php');
 </div>
 <!--end main-wrapp-->
 <?php
-include('contactanos.php');
+
+if($_SESSION['rol'] != 1){
+    include('contactanos.php');
+}
+
 ?>
 <hr>
+</div>
 <script>
 var myCarousel = document.querySelector('#carouselExampleCaptions')
 var carousel = new bootstrap.Carousel(myCarousel, {
@@ -91,7 +98,7 @@ var carousel = new bootstrap.Carousel(myCarousel, {
 });
 </script>
 
-<?php include("footer.php")?>
+
 
         </div>
         <!--end contentBoxMasterBox1-->
@@ -105,5 +112,5 @@ var carousel = new bootstrap.Carousel(myCarousel, {
 <!--end bg1-->
 
 </body>
-
+<?php include("footer.php")?>
 </html>

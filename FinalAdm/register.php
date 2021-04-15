@@ -1,6 +1,5 @@
 <?php
-    include("libs/conexion.php");
-    include("libs/configx.php");
+    
     include("header.php");
 
     if($_POST){

@@ -4,7 +4,7 @@
 
     if($_POST){
         session_start();
-        $contraseña = md5($contraseña);
+        $contraseña = $contraseña;
 
 
     }
@@ -46,11 +46,11 @@
 </head>
 <body>
     <div class="container col-md-8" style="border-radius: 8px; box-shadow: 2px 2px 1px 1px #C3C8C6; margin: 10% auto;">
-        <img src="img/logo.png" class="logo " alt="Sweet Happineess">
-        <form method="POST" class="mb-2">
+        <img src="img/logo.png" class="logo" action="loguear.php" alt="Sweet Happineess">
+        <form method="POST" class="mb-2" >
             <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Correo Electrónico" name="email">
+                <label for="email">l</label>
+                <input type="text" class="form-control" id="email" placeholder="Correo Electrónico" name="email">
             </div>
             <div class="form-group">
                 <label for="password">Contraseña</label>
@@ -60,6 +60,9 @@
                 <button type="submit" class="btn btn-lg btn-block">Iniciar Sesión</button>
             </div>
         </form>
+        <div style="color:red;">
+            <span><? echo $error; ?></span>
+        </div>
         <div class="enlaces mb-2">
             <a href="#">¿Olvidaste tu contraseña?</a>
             <a href="register.php">Registrarse</a>

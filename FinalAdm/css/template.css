@@ -1,6 +1,6 @@
 body{ margin:0 auto; padding:0;
      font-family:'Open Sans', Helvetica, sans-serif; 
-    background: #f4f4f4;
+    background: #f3f4f7;
     }
 .banner {
     background: #a770ef;
@@ -85,7 +85,7 @@ img{ border:0; }
 .bg1{ width:100%; height:auto;  }
 .slogan{font-family: 'Dancing Script', cursive; color: #284243; font-size: 26px;margin-top: 85px; margin-left: 20px; text-align: center;}
 /*DIMENSION GENERAL DEL PORTAL*/
-.main-wrapp{ width:1024px; height:auto; display:table; margin:0 auto; }
+.main-wrapp{ width:100%; height:auto; display:table; margin:0 auto; }
 /*FIN DIMENSION GENERAL DEL PORTAL*/
 .logito{width: 100%; display: flex; flex-direction: row; }
 /*PROPIEDADES DEL HEADER*/
