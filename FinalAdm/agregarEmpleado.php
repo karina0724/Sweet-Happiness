@@ -1,22 +1,31 @@
-<?php include("head.php");
+<?php 
+ob_start();
+include("head.php");
 
 if($_POST){
     extract($_POST);
-    $contraseña = $contraseña;  
+    $contraseña = $contraseña; 
+    $fecha= (new DateTime())->format('Y/m/d H:i:s'); 
 
       if(isset($_GET['edit'])){
-         
-        $sql="update empleados set id_sucursales= '{$sucursal}', cédula= '{$cedula}', nombre= '{$nombre}', apellido= '{$apellido}', teléfono= '{$telefono}', celular= '{$celular}', correo= '{$correo}', contraseña= '{$contraseña}', rol_hotel= '{$rolHotel}' rol = '2' where id= '{$_GET['edit']}'";
+
+        $id = $_GET['edit'];
+        $sql="update empleados set id_sucursales = '{$sucursal}', cédula= '{$cedula}', nombre= '{$nombre}',  apellido= '{$apellido}', teléfono= '{$telefono}', celular= '{$celular}', correo= '{$correo}', contraseña= '{$contraseña}', rol_hotel= '{$rolHotel}' where id= '{$id}'";
         
         $rs = conexion::execute($sql); 
-        header("location: gestionarEmpleados.php");
+        
+        $sql2 = "INSERT INTO log_huesped(usuario_operario, usuario_afectado, accion, fecha_hora) VALUES ('Administrador', 'Empleado ('{$id}'), 'Modificó Empleado', '{$fecha}')";
+        $rs = conexion::execute($sql2);
       }
       else{
             $sql = "INSERT INTO empleados(id_sucursales, cédula, nombre, apellido, teléfono, celular, correo, contraseña, rol_hotel, rol) VALUES ('{$sucursal}','{$cedula}','{$nombre}','{$apellido}','{$telefono}','{$celular}','{$correo}','{$contraseña}','{$rolHotel}','2')";
 
             $rs = conexion::execute($sql);
+
+            $sql2 = "INSERT INTO log_huesped(usuario_operario, usuario_afectado, accion, fecha_hora) VALUES ('Administrador', 'Empleado', 'Agregó Empleado', '{$fecha}')";
+            $rs = conexion::execute($sql2);
       }
-            
+      header("Location: gestionarEmpleados.php");       
 }
 if(isset($_GET['edit'])){
  
@@ -28,7 +37,7 @@ if(isset($_GET['edit'])){
         $_POST= $data;  
     }
 }
-
+ob_end_flush();
 ?>
 
 <div class="container d-flex flex-row justify-content-between" style="margin-top:50px;" >
@@ -56,33 +65,60 @@ if(isset($_GET['edit'])){
                 <div class="form-group col-md-6">
                         <label for="rolHotel">Cargo</label>
                             <select name="rolHotel" class="form-control" id="rolHotel" required>
-                            <option value=<?php echo $_POST['rol_hotel']; ?>><?php echo $_POST['rol_hotel']; ?></option>
-                               <?php 
-                                 $sql = "SELECT * FROM roles_hotel";
-                                 $rs = conexion::query_array($sql);
-                                 foreach($rs as $data)
-                                 {
-                                    echo "
-                                       <option value='{$data['nombre']}'>{$data['nombre']}</option>
-                                    ";
-                                 }
-                               ?>
+                            <?php 
+                               if(isset($_GET['edit'])){
+                                   ?><option value=<?php echo $_POST['rol_hotel'];?>><?php echo $_POST['rol_hotel'];?></option><?php
+                                   $sql = "SELECT * FROM roles_hotel WHERE nombre != '{$_POST['rol_hotel']}'";
+                                   $rs = conexion::query_array($sql);
+                                   foreach($rs as $data)
+                                   {
+                                      echo "
+                                         <option value='{$data['nombre']}'>{$data['nombre']}</option>
+                                      ";
+                                   }
+                               }
+                               else{
+                                   ?> <option value=0>Seleccione una opción</option><?php
+                                   $sql = "SELECT * FROM roles_hotel";
+                                   $rs = conexion::query_array($sql);
+                                   foreach($rs as $data)
+                                   {
+                                      echo "
+                                         <option value='{$data['nombre']}'>{$data['nombre']}</option>
+                                      ";
+                                   }
+                               }
+                            ?>
                            </select>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="sucursal">Sucursal</label>
                             <select name="sucursal" class="form-control" id="sucursal" required>
-                            <option value=<?php echo $_POST['id_sucursales']; ?>><?php echo $_POST['id_sucursales'];?></option>
-                               <?php 
-                                 $sql = "SELECT * FROM sucursales";
-                                 $rs = conexion::query_array($sql);
-                                 foreach($rs as $data)
-                                 {
-                                    echo "
-                                       <option value='{$data['id']}'>{$data['provincia']}</option>
-                                    ";
-                                 }
-                               ?>
+                            <?php 
+                               if(isset($_GET['edit'])){
+                                   ?> <option value=<?php echo $_POST['id_sucursales']; ?>><?php echo $_POST['id_sucursales'];?></option><?php
+                                   $sql = "SELECT * FROM sucursales WHERE provincia != '{$_POST['id_sucursales']}'";
+                                   $rs = conexion::query_array($sql);
+                                   foreach($rs as $data)
+                                   {
+                                      echo "
+                                         <option value='{$data['id']}'>{$data['provincia']}</option>
+                                      ";
+                                   }
+                               }
+                               else{
+                                ?> <option value=0>Seleccione una opción</option><?php
+                                $sql = "SELECT * FROM sucursales";
+                                $rs = conexion::query_array($sql);
+                                foreach($rs as $data)
+                                {
+                                   echo "
+                                      <option value='{$data['nombre']}'>{$data['nombre']}</option>
+                                   ";
+                                }
+                            }
+                            ?>
+                           
                            </select>
                     </div>
                 </div>

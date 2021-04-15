@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 15-04-2021 a las 01:48:37
+-- Tiempo de generación: 15-04-2021 a las 11:18:39
 -- Versión del servidor: 8.0.18
 -- Versión de PHP: 7.3.11
 
@@ -90,8 +90,8 @@ CREATE TABLE `empleados` (
 --
 
 INSERT INTO `empleados` (`id`, `id_sucursales`, `cédula`, `nombre`, `apellido`, `teléfono`, `celular`, `correo`, `contraseña`, `rol_hotel`, `rol`) VALUES
-(4, 5, '47378', 'kari', 'montero', '5675', '765765', 'kari@kari', 'kari', 'unrol', '2'),
-(5, 2, '003-0105933-3', 'Leuris', 'Montero Leonardo', '8095957742', '809-545-5434', 'leuris@leuris', '1234', 'Servicio al Cliente', '2');
+(6, 2, '123123', 'Vanessa', 'Montero Leonardo', '809-545-5434', '809-545-5434', 'vane@vane', '1234', 'Servicio al Cliente', '2'),
+(9, 3, '123123', 'Helen', 'Montas Castillo', '6546', '0505', 'helen@helen', 'hm123', 'Contador', '2');
 
 -- --------------------------------------------------------
 
@@ -115,10 +115,18 @@ CREATE TABLE `habitaciones` (
 
 CREATE TABLE `log_huesped` (
   `id_logs` int(11) NOT NULL,
-  `id_huesped` int(11) DEFAULT NULL,
+  `usuario_operario` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `usuario_afectado` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `accion` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `fecha_hora` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `log_huesped`
+--
+
+INSERT INTO `log_huesped` (`id_logs`, `usuario_operario`, `usuario_afectado`, `accion`, `fecha_hora`) VALUES
+(1, 'Administrador', 'Empleado', 'Agregó Empleado', '2021-04-15 11:03:08');
 
 -- --------------------------------------------------------
 
@@ -255,8 +263,7 @@ ALTER TABLE `habitaciones`
 -- Indices de la tabla `log_huesped`
 --
 ALTER TABLE `log_huesped`
-  ADD PRIMARY KEY (`id_logs`),
-  ADD KEY `id_huesped` (`id_huesped`);
+  ADD PRIMARY KEY (`id_logs`);
 
 --
 -- Indices de la tabla `pagos`
@@ -314,7 +321,7 @@ ALTER TABLE `administrador`
 -- AUTO_INCREMENT de la tabla `empleados`
 --
 ALTER TABLE `empleados`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `habitaciones`
@@ -326,7 +333,7 @@ ALTER TABLE `habitaciones`
 -- AUTO_INCREMENT de la tabla `log_huesped`
 --
 ALTER TABLE `log_huesped`
-  MODIFY `id_logs` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_logs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `pagos`
@@ -379,12 +386,6 @@ ALTER TABLE `empleados`
 --
 ALTER TABLE `habitaciones`
   ADD CONSTRAINT `habitaciones_ibfk_1` FOREIGN KEY (`id_sucursales`) REFERENCES `sucursales` (`id`);
-
---
--- Filtros para la tabla `log_huesped`
---
-ALTER TABLE `log_huesped`
-  ADD CONSTRAINT `log_huesped_ibfk_1` FOREIGN KEY (`id_huesped`) REFERENCES `reservadores_huesped` (`id`);
 
 --
 -- Filtros para la tabla `pagos`
