@@ -101,7 +101,6 @@ ob_end_flush();
                             </div>
                         </form>
                     </div>
-<<<<<<< HEAD
                     <div class="text-center">
                         <button type="submit" class="btn col-12" style="margin: 5px auto;">Guardar</button>
                     </div>
@@ -110,58 +109,11 @@ ob_end_flush();
             </div>
         </div>
       <!-- End Vertically centered login modal -->
-  
+    </div>
 </div>
 
 <?php include("footer.php")?>
 
-=======
-                </div>
-            </div>
-            <!-- End Vertically centered login modal -->
-
-
-            <!-- Vertically centered update modal -->
-            <div class="modal" tabindex="-1" role="dialog" id="modalEditarSucursal" aria-labelledby="titulo-modal2"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <div class="foto">
-                                <img src="img/logo.png" class="logo-modal" alt="Sweet Happineess">
-                            </div>
-                            <form method="POST" class="mb-2">
-                                <div class="form-group">
-                                    <label for="password" class="font-weight-bold">Dirección</label>
-                                    <input type="text" class="form-control" id="direccion"
-                                        value="<?php echo $_POST['direccion']?>" placeholder="Dirección"
-                                        name="direccion">
-                                </div>
-                                <div class="form-group">
-                                    <label for="provincia" class="font-weight-bold">Provincia Edi</label>
-                                    <input type="text" class="form-control" id="provincia"
-                                        value="<?php echo $_POST['provincia']?>" placeholder="Provincia"
-                                        name="provincia">
-                                </div>
-                                <div class="text-center">
-                                    <button type="submit" class="btn col-12" style="margin: 5px auto;">Guardar</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-            </div>
-
-        </div>
-    </div>
-    <!--end contacto-->
-</div>
-</div>
-</div>
-<!--end bg1-->
->>>>>>> def93af5469cc51f3d04eea6b174cc7f45ae22cc
 
 </body>
 
-<?php include("footer.php")?>
