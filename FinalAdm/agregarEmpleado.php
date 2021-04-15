@@ -57,7 +57,7 @@ ob_end_flush();
                          <input type="text" class="form-control" id="apellido" name="apellido" value="<?php echo $_POST['apellido']; ?>" placeholder = "Apellido">
                     </div>
                 </div>
-                <div class="form-group col-12">
+                <div class="form-group">
                         <label for="cedula">Cédula</label>
                         <input type="text" class="form-control" id="cedula" name="cedula" placeholder = "Cédula" value="<?php echo $_POST['cédula']; ?>">
                 </div>
