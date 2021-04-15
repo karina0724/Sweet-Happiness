@@ -81,9 +81,6 @@ include('redes.php');
 <!--end contentBoxMaster-->
 </div>
 <!--end main-wrapp-->
-<?php
-
-?>
 <hr>
 </div>
 <script>
