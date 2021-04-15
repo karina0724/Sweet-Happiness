@@ -7,7 +7,7 @@ include('redes.php');
 <div style="max-width: 80%;" class="container">
 <?php include('head.php'); ?> <br> <br>
 
-<h2 class="text-dark">Log de Eventos</h2>
+<h2 class="text-dark">Log de Eventos</h2><br>
 <table class="table table-hover">
         <thead>
             <tr>
