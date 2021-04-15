@@ -1,5 +1,6 @@
 <?php 
- 
+include('head.php');
+ include('redes.php');
  if(isset($_GET['del'])){
 
      $sql = "delete from empleados where id = {$_GET['del']}";
@@ -12,7 +13,7 @@
 ?>
 
 <div style="max-width: 80%;" class="container">
-<?php include('head.php'); ?> <br> <br>
+<?php  ?> <br> <br>
 
 <div>
  <h2>Empleados</h2>
@@ -47,8 +48,8 @@
                       <td>{$data['correo']}</td>
                       <td>{$data['rol_hotel']}</td>
                       <td>
-                         <a class='btn btn-danger'href='gestionarEmpleados.php?del={$data['id']}' style='width:100px;color:white;'>Eliminar</a>
-                         <a href='agregarEmpleado.php?edit={$data['id']}' class='btn btn-success' style='width:100px;color:white;'>Editar</a>
+                         <a class='btn btn-danger'href='gestionarEmpleados.php?del={$data['id']}' style='color:white;'>Eliminar</a>
+                         <a href='agregarEmpleado.php?edit={$data['id']}' class='btn btn-success' style='color:white;'>Editar</a>
                       </td>
                    </tr>
                 ";
