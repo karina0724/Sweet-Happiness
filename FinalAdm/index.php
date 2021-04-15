@@ -83,10 +83,6 @@ include('redes.php');
 <!--end main-wrapp-->
 <?php
 
-if($_SESSION['rol'] != 1){
-    include('contactanos.php');
-}
-
 ?>
 <hr>
 </div>
