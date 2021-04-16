@@ -95,7 +95,9 @@ if(isset($_SESSION['initialization_sistem'])){
         </div>
         <div class="form-group">
             <label for="monto">Monto total 10%</label>
-            <input type='number' class='form-control' id='monto' name='monto' placeholder='Monto'>
+            <?php $numero_aleatorio = rand(1,100);
+            $numero_aleatorio / 100; ?>
+            <input type='disable' class='form-control' id='monto' name='monto' placeholder='Monto' value="2500">
         </div>
         <div class="text-center">
             <button type="submit" class="btn btn-dark btn-lg btn-block">Reservar</button>
