@@ -112,7 +112,7 @@
                case 3:?>
                     <nav class="menu-ja">
                         <a href="index.php">Inicio</a>
-                        <a href="#">Reservar Habitaciones</a>
+                        <a href="ReservarHabitaciones.php">Reservar Habitaciones</a>
                         <a href="#">Consultar Estado</a>
                         <a href="#">Pago</a>
                     </nav><?php

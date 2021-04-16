@@ -16,14 +16,66 @@ if(isset($_SESSION['initialization_sistem'])){
     <h2>Reservar Habitación</h2>
     <form method="POST">
         <div class="form-row">
+        <div class="form-group col-md-6">
+                        <label for="habitaciones">Habitaciones</label>
+                            <select name="habitaciones" class="form-control" id="habitaciones" required>
+                            <?php 
+                               if(isset($_GET['edit'])){
+                                   ?> <option value=<?php echo $_POST['id_sucursales']; ?>><?php echo $_POST['categoria'];?></option><?php
+                                   $sql = "SELECT * FROM habitaciones WHERE categoria != '{$_POST['id']}'";
+                                   $rs = conexion::query_array($sql);
+                                   foreach($rs as $data)
+                                   {
+                                      echo "
+                                         <option value='{$data['id']}'>{$data['categoria']}</option>
+                                      ";
+                                   }
+                               }
+                               else{
+                                ?> <option value=0>Seleccione una opción</option><?php
+                                $sql = "SELECT * FROM habitaciones";
+                                $rs = conexion::query_array($sql);
+                                foreach($rs as $data)
+                                {
+                                   echo "
+                                      <option value='{$data['id']}'>{$data['categoria']}</option>
+                                   ";
+                                }
+                            }
+                            ?>
+                           
+                           </select>
+                    </div>
             <div class="form-group col-md-6">
-                <label for="habitaciones">Habitaciones</label>
-                <input type="text" class="form-control" id="habitaciones" name="habitaciones">
-            </div>
-            <div class="form-group col-md-6">
-                <label for="provincia">Provincia</label>
-                <input type="text" class="form-control" id="provincia" name="provincia">
-            </div>
+                        <label for="sucursal">Sucursal</label>
+                            <select name="sucursal" class="form-control" id="sucursal" required>
+                            <?php 
+                               if(isset($_GET['edit'])){
+                                   ?> <option value=<?php echo $_POST['id_sucursales']; ?>><?php echo $_POST['id_sucursales'];?></option><?php
+                                   $sql = "SELECT * FROM sucursales WHERE provincia != '{$_POST['id_sucursales']}'";
+                                   $rs = conexion::query_array($sql);
+                                   foreach($rs as $data)
+                                   {
+                                      echo "
+                                         <option value='{$data['id']}'>{$data['provincia']}</option>
+                                      ";
+                                   }
+                               }
+                               else{
+                                ?> <option value=0>Seleccione una opción</option><?php
+                                $sql = "SELECT * FROM sucursales";
+                                $rs = conexion::query_array($sql);
+                                foreach($rs as $data)
+                                {
+                                   echo "
+                                      <option value='{$data['id']}'>{$data['provincia']}</option>
+                                   ";
+                                }
+                            }
+                            ?>
+                           
+                           </select>
+                    </div>
         </div>
         <div class="form-group">
             <label for="fechaIni">Fecha de inicio</label>
