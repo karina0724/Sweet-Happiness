@@ -1,10 +1,10 @@
 <?php
 include('head.php'); 
 if($_POST){
-    extract($_POST);
+    $datos = extract($_POST);
 
     $sql2 = "INSERT INTO reservaciones_habitaciones(id_habitaciones, id_HReservador, id_sucursales, fecha_inicio, fecha_fin, monto_total) 
-    VALUES ('{$habitaciones}', '{$provincia}', '{$fechaIni}', '{$fechaFin}', '${monto}')";
+    VALUES ({$habitaciones}, {$_SESSION['UserId']} , {$provincia}, '{$fechaIni}', '{$fechaFin}', '{$monto}')";
     $rs = conexion::execute($sql2);
 }
 if(isset($_SESSION['initialization_sistem'])){
@@ -12,18 +12,70 @@ if(isset($_SESSION['initialization_sistem'])){
         
 ?>
 <br>
-<div class=" container col-md-9"><br>
+<div class=" container col-md-8">
     <h2>Reservar Habitación</h2>
     <form method="POST">
         <div class="form-row">
+        <div class="form-group col-md-6">
+                        <label for="habitaciones">Habitaciones</label>
+                            <select name="habitaciones" class="form-control" id="habitaciones" required>
+                            <?php 
+                               if(isset($_GET['edit'])){
+                                   ?> <option value=<?php echo $_POST['id_sucursales']; ?>><?php echo $_POST['categoria'];?></option><?php
+                                   $sql = "SELECT * FROM habitaciones WHERE categoria != '{$_POST['id']}'";
+                                   $rs = conexion::query_array($sql);
+                                   foreach($rs as $data)
+                                   {
+                                      echo "
+                                         <option value='{$data['id']}' name='habitaciones'>{$data['categoria']}</option>
+                                      ";
+                                   }
+                               }
+                               else{
+                                ?> <option value=0>Seleccione una opción</option><?php
+                                $sql = "SELECT * FROM habitaciones";
+                                $rs = conexion::query_array($sql);
+                                foreach($rs as $data)
+                                {
+                                   echo "
+                                      <option value='{$data['id']}' name='habitaciones'>{$data['categoria']}</option>
+                                   ";
+                                }
+                            }
+                            ?>
+                           
+                           </select>
+                    </div>
             <div class="form-group col-md-6">
-                <label for="habitaciones">Habitaciones</label>
-                <input type="text" class="form-control" id="habitaciones" name="habitaciones">
-            </div>
-            <div class="form-group col-md-6">
-                <label for="provincia">Provincia</label>
-                <input type="text" class="form-control" id="provincia" name="provincia">
-            </div>
+                        <label for="provincia">Sucursal</label>
+                            <select name="provincia" class="form-control" id="provincia" required>
+                            <?php 
+                               if(isset($_GET['edit'])){
+                                   ?> <option value=<?php echo $_POST['id_sucursales']; ?>><?php echo $_POST['id_sucursales'];?></option><?php
+                                   $sql = "SELECT * FROM sucursales WHERE provincia != '{$_POST['id_sucursales']}'";
+                                   $rs = conexion::query_array($sql);
+                                   foreach($rs as $data)
+                                   {
+                                      echo "
+                                         <option value='{$data['id']}'>{$data['provincia']}</option>
+                                      ";
+                                   }
+                               }
+                               else{
+                                ?> <option value=0>Seleccione una opción</option><?php
+                                $sql = "SELECT * FROM sucursales";
+                                $rs = conexion::query_array($sql);
+                                foreach($rs as $data)
+                                {
+                                   echo "
+                                      <option value='{$data['id']}'>{$data['provincia']}</option>
+                                   ";
+                                }
+                            }
+                            ?>
+                           
+                           </select>
+                    </div>
         </div>
         <div class="form-group">
             <label for="fechaIni">Fecha de inicio</label>
@@ -35,7 +87,7 @@ if(isset($_SESSION['initialization_sistem'])){
         </div>
         <div class="form-group">
             <label for="monto">Monto total 10%</label>
-            <input type="number" class="form-control" id="monto" name="monto" placeholder="Monto">
+            <input type='number' class='form-control' id='monto' name='monto' placeholder='Monto'>
         </div>
         <div class="text-center">
             <button type="submit" class="btn btn-dark btn-lg btn-block">Reservar</button>
