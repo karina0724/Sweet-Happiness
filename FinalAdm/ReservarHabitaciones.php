@@ -4,24 +4,15 @@ if($_POST){
     $datos = extract($_POST);
 
     $sql2 = "INSERT INTO reservaciones_habitaciones(id_habitaciones, id_HReservador, id_sucursales, fecha_inicio, fecha_fin, monto_total) 
-<<<<<<< HEAD
-    VALUES ({$habitaciones}, {$_SESSION['UserId']} , {$provincia}, {$fechaIni}, {$fechaFin}, {$monto})";
-=======
     VALUES ({$habitaciones}, {$_SESSION['UserId']} , {$provincia}, '{$fechaIni}', '{$fechaFin}', '{$monto}')";
->>>>>>> 0e8edc28fbd730953f635425349815ed0d119e59
     $rs = conexion::execute($sql2);
 }
 if(isset($_SESSION['initialization_sistem'])){
     if(isset($_SESSION['rol']) == 3 || isset($_SESSION['rol']) == 1){
         
 ?>
-<<<<<<< HEAD
-<br
-<div class=" container col-md-9"><br>
-=======
 <br>
 <div class=" container col-md-8">
->>>>>>> 0e8edc28fbd730953f635425349815ed0d119e59
     <h2>Reservar Habitación</h2>
     <form method="POST">
         <div class="form-row">
@@ -36,11 +27,7 @@ if(isset($_SESSION['initialization_sistem'])){
                                    foreach($rs as $data)
                                    {
                                       echo "
-<<<<<<< HEAD
                                          <option value='{$data['id']}' name='habitaciones'>{$data['categoria']}</option>
-=======
-                                         <option value='{$data['id']}'>{$data['categoria']}</option>
->>>>>>> 95cc8a49520fd0a7c8f4d41ccb6d87148c7e379c
                                       ";
                                    }
                                }
@@ -51,11 +38,7 @@ if(isset($_SESSION['initialization_sistem'])){
                                 foreach($rs as $data)
                                 {
                                    echo "
-<<<<<<< HEAD
                                       <option value='{$data['id']}' name='habitaciones'>{$data['categoria']}</option>
-=======
-                                      <option value='{$data['id']}'>{$data['categoria']}</option>
->>>>>>> 95cc8a49520fd0a7c8f4d41ccb6d87148c7e379c
                                    ";
                                 }
                             }
@@ -103,8 +86,8 @@ if(isset($_SESSION['initialization_sistem'])){
             <input type="date" class="form-control" id="fechaFin" name="fechaFin" placeholder="Fecha Final">
         </div>
         <div class="form-group">
-            <label for="monto">Monto total 10%</label>
-            <input type='number' class='form-control' id='monto' name='monto' placeholder='Monto'>
+            <label for="monto">Abono</label>
+            <input type='number' class='form-control' id='monto' name='monto' >
         </div>
         <div class="text-center">
             <button type="submit" class="btn btn-dark btn-lg btn-block">Reservar</button>
@@ -120,5 +103,5 @@ if(isset($_SESSION['initialization_sistem'])){
     ";
 }
 
-include("footer.php")
+include("footer.php");
 ?>
