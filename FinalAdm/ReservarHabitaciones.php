@@ -4,15 +4,24 @@ if($_POST){
     $datos = extract($_POST);
 
     $sql2 = "INSERT INTO reservaciones_habitaciones(id_habitaciones, id_HReservador, id_sucursales, fecha_inicio, fecha_fin, monto_total) 
+<<<<<<< HEAD
     VALUES ({$habitaciones}, {$_SESSION['UserId']} , {$provincia}, {$fechaIni}, {$fechaFin}, {$monto})";
+=======
+    VALUES ({$habitaciones}, {$_SESSION['UserId']} , {$provincia}, '{$fechaIni}', '{$fechaFin}', '{$monto}')";
+>>>>>>> 0e8edc28fbd730953f635425349815ed0d119e59
     $rs = conexion::execute($sql2);
 }
 if(isset($_SESSION['initialization_sistem'])){
     if(isset($_SESSION['rol']) == 3 || isset($_SESSION['rol']) == 1){
         
 ?>
+<<<<<<< HEAD
 <br
 <div class=" container col-md-9"><br>
+=======
+<br>
+<div class=" container col-md-8">
+>>>>>>> 0e8edc28fbd730953f635425349815ed0d119e59
     <h2>Reservar Habitación</h2>
     <form method="POST">
         <div class="form-row">
@@ -27,7 +36,11 @@ if(isset($_SESSION['initialization_sistem'])){
                                    foreach($rs as $data)
                                    {
                                       echo "
+<<<<<<< HEAD
+                                         <option value='{$data['id']}' name='habitaciones'>{$data['categoria']}</option>
+=======
                                          <option value='{$data['id']}'>{$data['categoria']}</option>
+>>>>>>> 95cc8a49520fd0a7c8f4d41ccb6d87148c7e379c
                                       ";
                                    }
                                }
@@ -38,7 +51,11 @@ if(isset($_SESSION['initialization_sistem'])){
                                 foreach($rs as $data)
                                 {
                                    echo "
+<<<<<<< HEAD
+                                      <option value='{$data['id']}' name='habitaciones'>{$data['categoria']}</option>
+=======
                                       <option value='{$data['id']}'>{$data['categoria']}</option>
+>>>>>>> 95cc8a49520fd0a7c8f4d41ccb6d87148c7e379c
                                    ";
                                 }
                             }
@@ -47,8 +64,8 @@ if(isset($_SESSION['initialization_sistem'])){
                            </select>
                     </div>
             <div class="form-group col-md-6">
-                        <label for="sucursal">Sucursal</label>
-                            <select name="sucursal" class="form-control" id="sucursal" required>
+                        <label for="provincia">Sucursal</label>
+                            <select name="provincia" class="form-control" id="provincia" required>
                             <?php 
                                if(isset($_GET['edit'])){
                                    ?> <option value=<?php echo $_POST['id_sucursales']; ?>><?php echo $_POST['id_sucursales'];?></option><?php
@@ -87,7 +104,7 @@ if(isset($_SESSION['initialization_sistem'])){
         </div>
         <div class="form-group">
             <label for="monto">Monto total 10%</label>
-            <input type="number" class="form-control" id="monto" name="monto" placeholder="Monto">
+            <input type='number' class='form-control' id='monto' name='monto' placeholder='Monto'>
         </div>
         <div class="text-center">
             <button type="submit" class="btn btn-dark btn-lg btn-block">Reservar</button>
