@@ -27,11 +27,7 @@ if(isset($_SESSION['initialization_sistem'])){
                                    foreach($rs as $data)
                                    {
                                       echo "
-<<<<<<< HEAD
                                          <option value='{$data['id']}' name='habitaciones'>{$data['categoria']}</option>
-=======
-                                         <option value='{$data['id']}'>{$data['categoria']}</option>
->>>>>>> 95cc8a49520fd0a7c8f4d41ccb6d87148c7e379c
                                       ";
                                    }
                                }
@@ -42,11 +38,7 @@ if(isset($_SESSION['initialization_sistem'])){
                                 foreach($rs as $data)
                                 {
                                    echo "
-<<<<<<< HEAD
                                       <option value='{$data['id']}' name='habitaciones'>{$data['categoria']}</option>
-=======
-                                      <option value='{$data['id']}'>{$data['categoria']}</option>
->>>>>>> 95cc8a49520fd0a7c8f4d41ccb6d87148c7e379c
                                    ";
                                 }
                             }
@@ -94,10 +86,15 @@ if(isset($_SESSION['initialization_sistem'])){
             <input type="date" class="form-control" id="fechaFin" name="fechaFin" placeholder="Fecha Final">
         </div>
         <div class="form-group">
+<<<<<<< HEAD
             <label for="monto">Monto total 10%</label>
             <?php $numero_aleatorio = rand(1,100);
             $numero_aleatorio / 100; ?>
             <input type='disable' class='form-control' id='monto' name='monto' placeholder='Monto' value="2500">
+=======
+            <label for="monto">Abono</label>
+            <input type='number' class='form-control' id='monto' name='monto' >
+>>>>>>> 8a4ed113904ac0c0c842fe1efdc141415d37c305
         </div>
         <div class="text-center">
             <button type="submit" class="btn btn-dark btn-lg btn-block">Reservar</button>
@@ -113,5 +110,5 @@ if(isset($_SESSION['initialization_sistem'])){
     ";
 }
 
-include("footer.php")
+include("footer.php");
 ?>

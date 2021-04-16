@@ -30,7 +30,7 @@
             }
             $rs = mysqli_query(self::$instancia->myCon, $sql);
             $final = [];
-            while($fila = mysqli_fetch_object($rs)){
+            while($fila = mysqli_fetch_object($rs, true)){
                 $final[] = $fila;
             } 
             return $final;
