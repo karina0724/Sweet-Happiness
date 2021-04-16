@@ -6,6 +6,7 @@
             height:auto;
             padding: 30px 0;
             color:#fff;
+            
         }
         .img-1 img{
             width: 100px;
@@ -21,11 +22,12 @@
                </div>
                <div class="f">
                    <a href="#">Cadena de Hoteles Sweet Happiness</a>
-                   <!--[ESPECIFICAR LA RUTA AL INICIO DEL PORTAL]--><br>
-                   Calle 89 #45 Mirador Sur, RD.<br>
-                   809-545-5454<br>
+                   <!--[ESPECIFICAR LA RUTA AL INICIO DEL PORTAL]-->
+                   <p>Calle 89 #45 Mirador Sur, RD.</p>
+                   <p>809-545-5454</p>
+                   <p>TÉRMINOS DE USO | POLÍTICAS DE PRIVACIDAD | PREGUNTAS FRECUENTES</p>
                    <span>&copy; 2021 - Todos los Derechos Reservados</span>
-               </div>
+               </div><br>
                <div class="f">
                    <img src="images/nortic.jpg" height="100" alt="NORTIC A2" />
                    <!--[RESERVADO PARA SELLO DE CERTIFICACION DE LA NORTIC A2]-->

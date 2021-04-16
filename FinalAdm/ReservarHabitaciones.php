@@ -1,17 +1,17 @@
 <?php
 include('head.php'); 
 if($_POST){
-    extract($_POST);
+    $datos = extract($_POST);
 
     $sql2 = "INSERT INTO reservaciones_habitaciones(id_habitaciones, id_HReservador, id_sucursales, fecha_inicio, fecha_fin, monto_total) 
-    VALUES ('{$habitaciones}', '{$provincia}', '{$fechaIni}', '{$fechaFin}', '${monto}')";
+    VALUES ({$habitaciones}, {$_SESSION['UserId']} , {$provincia}, {$fechaIni}, {$fechaFin}, {$monto})";
     $rs = conexion::execute($sql2);
 }
 if(isset($_SESSION['initialization_sistem'])){
     if(isset($_SESSION['rol']) == 3 || isset($_SESSION['rol']) == 1){
         
 ?>
-<br>
+<br
 <div class=" container col-md-9"><br>
     <h2>Reservar Habitación</h2>
     <form method="POST">
