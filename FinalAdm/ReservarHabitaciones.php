@@ -27,7 +27,11 @@ if(isset($_SESSION['initialization_sistem'])){
                                    foreach($rs as $data)
                                    {
                                       echo "
+<<<<<<< HEAD
                                          <option value='{$data['id']}' name='habitaciones'>{$data['categoria']}</option>
+=======
+                                         <option value='{$data['id']}'>{$data['categoria']}</option>
+>>>>>>> 95cc8a49520fd0a7c8f4d41ccb6d87148c7e379c
                                       ";
                                    }
                                }
@@ -38,7 +42,11 @@ if(isset($_SESSION['initialization_sistem'])){
                                 foreach($rs as $data)
                                 {
                                    echo "
+<<<<<<< HEAD
                                       <option value='{$data['id']}' name='habitaciones'>{$data['categoria']}</option>
+=======
+                                      <option value='{$data['id']}'>{$data['categoria']}</option>
+>>>>>>> 95cc8a49520fd0a7c8f4d41ccb6d87148c7e379c
                                    ";
                                 }
                             }
