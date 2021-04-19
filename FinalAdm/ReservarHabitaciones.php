@@ -75,20 +75,9 @@ ob_end_flush();
             <input type="date" class="form-control" id="fechaFin" name="fechaFin" placeholder="Fecha Final">
         </div>
         <div class="form-group">
-<<<<<<< HEAD
             <label for="monto">Precio</label>
             <input type='number' class='form-control' id='monto' name='monto' value="<?php echo $precio;?>" disabled>
-=======
-<<<<<<< HEAD
-            <label for="monto">Monto total 10%</label>
-            <?php $numero_aleatorio = rand(1,100);
-            $numero_aleatorio / 100; ?>
-            <input type='disable' class='form-control' id='monto' name='monto' placeholder='Monto' value="2500">
-=======
-            <label for="monto">Abono</label>
-            <input type='number' class='form-control' id='monto' name='monto' >
->>>>>>> 8a4ed113904ac0c0c842fe1efdc141415d37c305
->>>>>>> c13ffbfa3b04fb4a75fb6c5c9b7d34e17c45fd86
+
         </div>
         <div class="text-center">
             <button type="submit" class="btn btn-dark btn-lg btn-block">Reservar</button>
