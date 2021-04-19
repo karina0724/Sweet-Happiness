@@ -19,6 +19,7 @@
        <img src="img/register.png" alt="Imagen" >
         <h2>Ven y comparte con nosotros del mejor ambiente.</h2>
   </div>
+  <div class="container col-md-10">
   <div class="col-md-6">
        <h1 class="text-center">Registrarse</h1>
         <form method="POST" class="needs-validation" novalidate>        
@@ -66,6 +67,7 @@
             <button type="submit" class="btn btn-dark btn-lg btn-block">Registrarse</button>
         </form>
   </div>
+</div>
 </div>
 
 <script>
