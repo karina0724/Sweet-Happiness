@@ -112,9 +112,9 @@
                case 3:?>
                     <nav class="menu-ja">
                         <a href="index.php">Inicio</a>
-                        <a href="ReservarHabitaciones.php">Reservar Habitaciones</a>
-                        <a href="#">Consultar Estado</a>
-                        <a href="#">Pago</a>
+                        <a href="consultarHabitaciones.php">Habitaciones</a>
+                        <a href="consultarReservaciones.php?idHuesped=<? echo $_SESSION['UserId']?>">Reservaciones</a>
+                        <a href="pagoHuesped.php">Pagos</a>
                     </nav><?php
                  break;
                case 4:?>
