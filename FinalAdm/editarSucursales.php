@@ -41,11 +41,11 @@ ob_end_flush();
                <form method="POST" class="mb-2">
                     <div class="form-group">
                         <label for="password" class="font-weight-bold">Dirección</label>
-                        <input type="text" class="form-control" id="direccion" value="<?php echo $_POST['direccion']?>" placeholder="Dirección" name="direccion">
+                        <input type="text" class="form-control" id="direccion" value="<?php echo $_POST['direccion']?>" placeholder="Dirección" name="direccion" required>
                     </div>
                     <div class="form-group">
                         <label for="provincia" class="font-weight-bold">Provincia</label>
-                        <input type="text" class="form-control" id="provincia" value="<?php echo $_POST['provincia']?>" placeholder="Provincia" name="provincia">
+                        <input type="text" class="form-control" id="provincia" value="<?php echo $_POST['provincia']?>" placeholder="Provincia" name="provincia" required>
                     </div>
                     <div class="text-center">
                         <button type="submit" class="btn btn-success" style="margin: 5px auto; width:250px;">Guardar</button>

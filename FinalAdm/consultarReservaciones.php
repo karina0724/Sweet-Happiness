@@ -18,7 +18,7 @@
     $sql = "SELECT r.id r.fecha_inicio, DATEDIFF(fecha_fin, fecha_inicio) as Dias, s.provincia, r.monto_total from reservaciones_habitaciones r inner join sucursales s  on s.id = r.id_sucursales where r.id_HReservador = {$idHuesped}";
     $rs = conexion::query_array($sql);
     
-    if(empty($rs)){
+    if(!$rs){
         echo "<h3 class='text-center text-dark font-weight-bold'> Usted no ha realizado ninguna reservación.</h3><br>";
     }
     else{ ?>

@@ -50,16 +50,16 @@ ob_end_flush();
                 <div class="form-row">
                     <div class="form-group col-md-6">
                          <label for="nombre">Nombre</label>
-                         <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $_POST['nombre']; ?>" placeholder="Nombre">
+                         <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $_POST['nombre']; ?>" placeholder="Nombre" required>
                     </div>
                     <div class="form-group col-md-6">
                          <label for="apellido">Apellido</label>
-                         <input type="text" class="form-control" id="apellido" name="apellido" value="<?php echo $_POST['apellido']; ?>" placeholder = "Apellido">
+                         <input type="text" class="form-control" id="apellido" name="apellido" value="<?php echo $_POST['apellido']; ?>" placeholder = "Apellido" required>
                     </div>
                 </div>
                 <div class="form-group">
                         <label for="cedula">Cédula</label>
-                        <input type="text" class="form-control" id="cedula" name="cedula" placeholder = "Cédula" value="<?php echo $_POST['cédula']; ?>">
+                        <input type="text" class="form-control" id="cedula" name="cedula" placeholder = "Cédula" value="<?php echo $_POST['cédula']; ?>" required>
                 </div>
                 <div class="form-row">
                 <div class="form-group col-md-6">
@@ -125,21 +125,21 @@ ob_end_flush();
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="telefono">Teléfono</label>
-                        <input type="text" class="form-control" id="telefono" name="telefono" value="<?php echo $_POST['teléfono']; ?>" placeholder = "Teléfono">
+                        <input type="text" class="form-control" id="telefono" name="telefono" value="<?php echo $_POST['teléfono']; ?>" placeholder = "Teléfono" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="celular">Celular</label>
-                        <input type="text" class="form-control" id="celular" name="celular" value="<?php echo $_POST['celular']; ?>" placeholder = "Celular">
+                        <input type="text" class="form-control" id="celular" name="celular" value="<?php echo $_POST['celular']; ?>" placeholder = "Celular" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="email">Correo Electrónico</label>
-                        <input type="email" class="form-control" id="email" name="correo" value="<?php echo $_POST['correo']; ?>" placeholder = "Correo Electrónico">
+                        <input required type="email" class="form-control" id="email" name="correo" value="<?php echo $_POST['correo']; ?>" placeholder = "Correo Electrónico">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="password">Contraseña</label>
-                        <input type="password" class="form-control" id="password" name="contraseña" value="<?php echo $_POST['contraseña']; ?>"placeholder = "Contraseña">
+                        <input required type="password" class="form-control" id="password" name="contraseña" value="<?php echo $_POST['contraseña']; ?>"placeholder = "Contraseña">
                     </div>
                 </div>
                 <div class="text-center" style="margin-top:35px;">
