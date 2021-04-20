@@ -114,7 +114,6 @@
                         <a href="index.php">Inicio</a>
                         <a href="consultarHabitaciones.php">Habitaciones</a>
                         <a href="consultarReservaciones.php?idHuesped=<? echo $_SESSION['UserId']?>">Reservaciones</a>
-                        <a href="pagoHuesped.php">Pagos</a>
                     </nav><?php
                  break;
                case 4:?>
