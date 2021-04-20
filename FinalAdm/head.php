@@ -280,8 +280,7 @@
                             <div class="btnSesiones">
                                 <button href="#" data-toggle="modal" data-target="#modalIniciarSesion"
                                     class="btnSes">Iniciar Sesión</button>
-                                <button href="#" data-toggle="modal" data-target="#modalRegistrarse"
-                                    class="btnSes">Registrarse</button>
+                                <a href="register.php" class="btnSes">Registrarse</a>
                             </div>
 
                         </div>

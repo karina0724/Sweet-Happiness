@@ -17,9 +17,9 @@
 <div class="d-flex flex-row justify-content-between .bg1" style="margin: 40px 0;">
   <div class="col-md-6 d-flex flex-column align-items-center"> 
        <img src="img/register.png" alt="Imagen" >
-        <h2>Ven y comparte con nosotros del mejor ambiente.</h2>
+        <h2 class="text-center">Únete a nuestra familia.</h2>
   </div>
-  <div class="container col-md-10">
+  <div class="container col-md-12">
   <div class="col-md-6">
        <h1 class="text-center">Registrarse</h1>
         <form method="POST" class="needs-validation" novalidate>        
