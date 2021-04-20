@@ -1,16 +1,15 @@
 <?php
-    
-    include("header.php");
+include("header.php");
 
     if($_POST){
         foreach($_POST as &$valor){
             $valor = addslashes($valor);
         }
         extract($_POST);
-        $contraseña = md5($contraseña);
 
-        $sql = "INSERT INTO reservadores_huesped(cédula, provincia, nombre, apellido, teléfono, celular, correo, contraseña, rol) VALUES ('{$cedula}','{$provincia}','{$nombre}','{$apellido}','{$telefono}','{$celular}','{$correo}','{$contraseña}','3')";
+        $sql = "INSERT INTO reservadores_huesped(cédula, provincia, nombre, apellido, teléfono, celular, correo, contraseña, rol) VALUES ({$cedula}, '{$provincia}', '{$nombre}', '{$apellido}','{$telefono}', '{$celular}', '{$correo}', {$contraseña},'3')";
         $rs = conexion::execute($sql);
+     
     }
 ?>
 
@@ -55,8 +54,8 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="email">Correo</label>
-                    <input type="email" class="form-control" id="email" name="correo" placeholder = "Correo">
+                    <label for="correo">Correo</label>
+                    <input type="email" class="form-control" id="correo" name="correo" placeholder = "Correo">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="password">Contraseña</label>
