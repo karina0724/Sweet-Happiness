@@ -1,6 +1,6 @@
 <?php 
 ob_start();
-include("head.php");
+include("header.php");
 
 if($_POST){
     extract($_POST);
@@ -34,7 +34,7 @@ ob_end_flush();
 
 <div class="container d-flex flex-row justify-content-between" style="margin-top:50px;" >
     <h2>Modificar Sucursales</h2>
-     <a href="gestionarSucursales.php" class="btn btn-secondary" style="color:white; width:250px; font-size: 18px;">Consultar Empleados</a>
+     <a href="gestionarSucursales.php" class="btn btn-secondary" style="color:white; width:250px; font-size: 18px;">Consultar Sucursales</a>
 </div>
 <div style="max-width: 80%; margin:50px auto; margin-bottom: 150px;">
     

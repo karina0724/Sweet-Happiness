@@ -1,5 +1,5 @@
 <?php
-    include('head.php');
+    include('header.php');
     include('redes.php');
 
     if(isset($_GET['idHuesped']))

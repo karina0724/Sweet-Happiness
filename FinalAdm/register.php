@@ -1,6 +1,6 @@
 <?php
     
-    include("head.php");
+    include("header.php");
 
     if($_POST){
         foreach($_POST as &$valor){
@@ -21,13 +21,12 @@
   </div>
   <div class="container col-md-12">
   <div class="col-md-6">
-       <h1 class="text-center">Registrarse</h1>
-        <form method="POST" class="needs-validation" novalidate>        
+       <h1 class="text-center">Registro de Huéspedes</h1>
+        <form method="POST">        
             <div class="form-row">
                 <div class="form-group col-md-6">
                      <label for="cedula">Cedula</label>
                      <input type="number" class="form-control" id="cedula" name="cedula" placeholder="Cédula">
-                     <div class="invalid-feedback">Looks good!</div>
                 </div>
                 <div class="form-group col-md-6">
                      <label for="provincia">Provincia</label>

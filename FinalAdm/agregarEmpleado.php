@@ -1,6 +1,6 @@
 <?php 
 ob_start();
-include("head.php");
+include("header.php");
 
 if($_POST){
     extract($_POST);

@@ -1,6 +1,6 @@
 <?php 
 ob_start();
-include('head.php');
+include('header.php');
 include('redes.php');
 $fecha= (new DateTime())->format('Y/m/d H:i:s'); 
  if(isset($_GET['del'])){

@@ -27,7 +27,7 @@
 <body>
     <div style="max-width: 80%;" class="container">
         <?php
-
+   
     session_start();
     if(isset($_SESSION['initialization_sistem'])){
      
@@ -93,7 +93,7 @@
                     <nav class="menu-ja">
                         <a href="index.php">Inicio</a>
                         <a href="gestionarHuespedes.php">Gestionar Huéspedes</a>
-                        <a href="#">Consultar Hoteles</a>
+                        <a href="consultarHabitaciones.php">Consultar Habitaciones</a>
                     </nav>
                     <?php
                }else if($_SESSION['rol-hotel'] == 'Contador'){

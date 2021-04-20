@@ -1,6 +1,6 @@
 <?php
 ob_start();
-include('head.php'); 
+include('header.php'); 
 
 if(isset($_GET['precio']) && isset($_GET['habitacion']) && isset($_GET['idHabitacion'])){
     $precio = $_GET['precio'];

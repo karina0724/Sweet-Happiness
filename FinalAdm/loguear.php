@@ -1,9 +1,6 @@
-
 <?php
-include('libs/conexion1.php');
-
-
 session_start();
+include('libs/conexion1.php');
 
 $usuario =$_POST['email'];
 $clave =$_POST['password'];

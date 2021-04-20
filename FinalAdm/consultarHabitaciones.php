@@ -1,4 +1,4 @@
-<?php include("head.php"); 
+<?php include("header.php"); 
 
 
 $sql = "SELECT * FROM habitaciones";
