@@ -8,6 +8,7 @@ if(isset($_GET['precio']) && isset($_GET['habitacion']) && isset($_GET['idHabita
     $idHabitacion = $_GET['idHabitacion'];
 }
 
+
 if($_POST){
     
     extract($_POST);
