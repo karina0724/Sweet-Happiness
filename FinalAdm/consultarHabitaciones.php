@@ -9,7 +9,6 @@ $rs = conexion::query_array($sql);
        $arrHabitacionp[] = $data['categoria'];
        $arrId[] = $data['id'];
     }
-
 ?>
         <div class="container col-md-9">
             <div class="servicios">
@@ -25,10 +24,11 @@ $rs = conexion::query_array($sql);
                       <h5> <a href="#" class="text-dark">Presidencial</a></h5>
                       <p class="small text-muted mb-0">Sweet Happiness <br> status: <span
                           style="color: blue;">Disponible</span></p>
-                          <p><?php echo "Precio: RD$ ". $arr[0]; ?></p>
-                        <a href="ReservarHabitaciones.php?precio=<? echo $arr[0];?>&habitacion=<? echo $arrHabitacionp[0];?>&idHabitacion=<?echo $arrId[0];?>" class="btn btn-success" style="color:white;">
+                          <p><?php echo "Precio: RD$ ".$arr[0] ?></p>
+                          <?php
+                          echo "<a href='ReservarHabitaciones.php?precio=$arr[0]&habitacion=$arrHabitacionp[0]&idHabitacion=$arrId[0]>' class='btn btn-success' style='color:white;'>
                           Reservar
-                        </a>
+                        </a>" ?>
                     </div>
                   </div>
                 </div>
@@ -41,10 +41,11 @@ $rs = conexion::query_array($sql);
                       <h5> <a href="#" class="text-dark">Individual</a></h5>
                       <p class="small text-muted mb-0">Sweet Happiness<br> status: <span
                           style="color: blue;">Disponible</span></p>
-                          <p><?php echo "Precio: RD$ ". $arr[1]; ?></p>
-                        <a href="ReservarHabitaciones.php?precio=<? echo $arr[1];?>&habitacion=<? echo $arrHabitacionp[1];?>&idHabitacion=<?echo $arrId[1];?>" class="btn btn-success" style="color:white;">
+                          <p><?php echo "Precio: RD$ ". $arr[1] ?></p>
+                          <?php
+                          echo "<a href='ReservarHabitaciones.php?precio=$arr[1]&habitacion=$arrHabitacionp[1]&idHabitacion=$arrId[1]>' class='btn btn-success' style='color:white;'>
                           Reservar
-                        </a>
+                        </a>" ?>
                     </div>
                   </div>
                 </div>
@@ -57,10 +58,11 @@ $rs = conexion::query_array($sql);
                       <h5> <a href="#" class="text-dark">Doble</a></h5>
                       <p class="small text-muted mb-0">Sweet Happiness <br> status: <span
                           style="color: blue;">Disponible</span></p>
-                          <p><?php echo "Precio: RD$ ". $arr[2]; ?></p>
-                        <a href="ReservarHabitaciones.php?precio=<? echo $arr[2];?>&habitacion=<? echo $arrHabitacionp[2];?>&idHabitacion=<?echo $arrId[2];?>" class="btn btn-success" style="color:white;">
+                          <p><?php echo "Precio: RD$ ".  $arr[2] ?></p>
+                          <?php
+                          echo "<a href='ReservarHabitaciones.php?precio=$arr[2]&habitacion=$arrHabitacionp[2]&idHabitacion=$arrId[2]>' class='btn btn-success' style='color:white;'>
                           Reservar
-                        </a>
+                        </a>" ?>
                     </div>
                   </div>
                 </div>
@@ -73,10 +75,11 @@ $rs = conexion::query_array($sql);
                       <h5> <a href="#" class="text-dark">Estudio</a></h5>
                       <p class="small text-muted mb-0">Banquete Sweet Happiness <br> status: <span
                           style="color: blue;">Disponible</span></p>
-                          <p><?php echo "Precio: RD$ ". $arr[3]; ?></p>
-                        <a href="ReservarHabitaciones.php?precio=<? echo $arr[3];?>&habitacion=<? echo $arrHabitacionp[3];?>&idHabitacion=<?echo $arrId[3];?>" class="btn btn-success" style="color:white;">
+                          <p><?php echo "Precio: RD$ ".  $arr[3] ?></p>
+                          <?php
+                          echo "<a href='ReservarHabitaciones.php?precio=$arr[3]&habitacion=$arrHabitacionp[3]&idHabitacion=$arrId[3]>' class='btn btn-success' style='color:white;'>
                           Reservar
-                        </a>
+                        </a>" ?>
                     </div>
                   </div>
                 </div>
@@ -89,10 +92,11 @@ $rs = conexion::query_array($sql);
                       <h5> <a href="#" class="text-dark">King</a></h5>
                       <p class="small text-muted mb-0">Sweet Happiness <br> status: <span
                           style="color: blue;">Disponible</span></p>
-                          <p><?php echo "Precio: RD$ ". $arr[4]; ?></p>
-                        <a href="ReservarHabitaciones.php?precio=<? echo $arr[4];?>&habitacion=<? echo $arrHabitacionp[4];?>&idHabitacion=<?echo $arrId[4];?>" class="btn btn-success" style="color:white;">
+                          <p><?php echo "Precio: RD$ ".  $arr[4] ?></p>
+                          <?php
+                          echo "<a href='ReservarHabitaciones.php?precio=$arr[4]&habitacion=$arrHabitacionp[4]&idHabitacion=$arrId[4]>' class='btn btn-success' style='color:white;'>
                           Reservar
-                        </a>
+                        </a>" ?>
                     </div>
                   </div>
                 </div>
@@ -105,10 +109,11 @@ $rs = conexion::query_array($sql);
                       <h5> <a href="#" class="text-dark">Queen</a></h5>
                       <p class="small text-muted mb-0">Sweet Happiness <br> status: <span
                           style="color: blue;">Disponible</span></p>
-                          <p><?php echo "Precio: RD$ ". $arr[5]; ?></p>
-                        <a href="ReservarHabitaciones.php?precio=<? echo $arr[5];?>&habitacion=<? echo $arrHabitacionp[5];?>&idHabitacion=<?echo $arrId[5];?>" class="btn btn-success" style="color:white;">
+                          <p><?php echo "Precio: RD$ ".  $arr[5] ?></p>
+                          <?php
+                          echo "<a href='ReservarHabitaciones.php?precio=$arr[5]&habitacion=$arrHabitacionp[5]&idHabitacion=$arrId[5]>' class='btn btn-success' style='color:white;'>
                           Reservar
-                        </a>
+                        </a>" ?>
                     </div>
                   </div>
                 </div>

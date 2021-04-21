@@ -4,6 +4,7 @@ include('header.php');
 
 if(isset($_GET['precio']) && isset($_GET['habitacion']) && isset($_GET['idHabitacion'])){
     $precio = $_GET['precio'];
+    $porciento = $precio / 10;
     $tipoHabitacion = $_GET['habitacion'];
     $idHabitacion = $_GET['idHabitacion'];
 }
@@ -30,11 +31,11 @@ ob_end_flush();
 <br>
 <div class=" container col-md-8">
     <h2>Reservar Habitación</h2>
-    <form method="POST">
+    <form method="GET" method="POST">
         <div class="form-row">
         <div class="form-group col-md-6">
-                        <label for="habitaciones">Habitación</label>   
-                        <input type="text" class="form-control" id="habitaciones" name="habitaciones" value="<?php echo $tipoHabitacion; ?>" disabled>
+                        <label for="habitacion">Habitación</label>   
+                        <input type="text" class="form-control" id="habitacion" name="habitacion" value="<?php echo "$tipoHabitacion" ?>" disabled>
         </div>
             <div class="form-group col-md-6">
                         <label for="provincia">Sucursal</label>
@@ -76,8 +77,8 @@ ob_end_flush();
             <input type="date" class="form-control" id="fechaFin" name="fechaFin" placeholder="Fecha Final">
         </div>
         <div class="form-group">
-            <label for="monto">Precio</label>
-            <input type='number' class='form-control' id='monto' name='monto' value="<?php echo $precio;?>" disabled>
+            <label for="precio">Precio</label>
+            <input type='number' class='form-control' id='precio' name='precio' value="<?php echo "$porciento" ?>" disabled>
 
         </div>
         <div class="text-center">
