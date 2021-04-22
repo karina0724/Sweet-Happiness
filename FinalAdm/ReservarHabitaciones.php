@@ -26,17 +26,15 @@ if($_POST){
         $sql2="UPDATE reservaciones_habitaciones SET id_habitaciones={$habitacion}, id_sucursales={$provincia}, fecha_inicio='{$fechaIni}', fecha_fin= '{$fechaFin}', monto_total={$precio} WHERE id={$_GET['edit']}";
 
         $rs = conexion::execute($sql2); 
+        header("location: consultarReservaciones.php?idHuesped={$_SESSION['UserId']}");
     }else{ 
         $sql2 = "INSERT INTO reservaciones_habitaciones(id_habitaciones, id_HReservador, id_sucursales, fecha_inicio, fecha_fin, monto_total) 
         VALUES ({$idHabitacion}, {$_SESSION['UserId']}, {$provincia}, '{$fechaIni}', '{$fechaFin}', {$precio})";
         
         $rs = conexion::execute($sql2); 
-        // var_dump($idHabitacion, $_SESSION['UserId'], $provincia, $fechaIni, $fechaFin, $precio);
-        // exit();
-    }
-    
+        header("location: consultarReservaciones.php?idHuesped={$_SESSION['UserId']}");
+    }    
 }
-
 
 if(isset($_GET['edit'])){
     $sql= "select * from reservaciones_habitaciones where id= {$_GET['edit']}";

@@ -26,7 +26,7 @@ $rs = conexion::query_array($sql);
                           style="color: blue;">Disponible</span></p>
                           <p><?php echo "Precio: RD$ ".$arr[0] ?></p>
                           <?php
-                          echo "<a href='ReservarHabitaciones.php?precio=$arr[0]&habitacion=$arrHabitacionp[0]&idHabitacion=$arrId[0]>' class='btn btn-success' style='color:white;'>
+                          echo "<a href='ReservarHabitaciones.php?precio=$arr[0]&habitacion=$arrHabitacionp[0]&idHabitacion=$arrId[0]' class='btn btn-success' style='color:white;'>
                           Reservar
                         </a>" ?>
                     </div>
@@ -43,7 +43,7 @@ $rs = conexion::query_array($sql);
                           style="color: blue;">Disponible</span></p>
                           <p><?php echo "Precio: RD$ ". $arr[1] ?></p>
                           <?php
-                          echo "<a href='ReservarHabitaciones.php?precio=$arr[1]&habitacion=$arrHabitacionp[1]&idHabitacion=$arrId[1]>' class='btn btn-success' style='color:white;'>
+                          echo "<a href='ReservarHabitaciones.php?precio=$arr[1]&habitacion=$arrHabitacionp[1]&idHabitacion=$arrId[1]' class='btn btn-success' style='color:white;'>
                           Reservar
                         </a>" ?>
                     </div>
@@ -60,7 +60,7 @@ $rs = conexion::query_array($sql);
                           style="color: blue;">Disponible</span></p>
                           <p><?php echo "Precio: RD$ ".  $arr[2] ?></p>
                           <?php
-                          echo "<a href='ReservarHabitaciones.php?precio=$arr[2]&habitacion=$arrHabitacionp[2]&idHabitacion=$arrId[2]>' class='btn btn-success' style='color:white;'>
+                          echo "<a href='ReservarHabitaciones.php?precio=$arr[2]&habitacion=$arrHabitacionp[2]&idHabitacion=$arrId[2]' class='btn btn-success' style='color:white;'>
                           Reservar
                         </a>" ?>
                     </div>
@@ -77,7 +77,7 @@ $rs = conexion::query_array($sql);
                           style="color: blue;">Disponible</span></p>
                           <p><?php echo "Precio: RD$ ".  $arr[3] ?></p>
                           <?php
-                          echo "<a href='ReservarHabitaciones.php?precio=$arr[3]&habitacion=$arrHabitacionp[3]&idHabitacion=$arrId[3]>' class='btn btn-success' style='color:white;'>
+                          echo "<a href='ReservarHabitaciones.php?precio=$arr[3]&habitacion=$arrHabitacionp[3]&idHabitacion=$arrId[3]' class='btn btn-success' style='color:white;'>
                           Reservar
                         </a>" ?>
                     </div>
@@ -94,7 +94,7 @@ $rs = conexion::query_array($sql);
                           style="color: blue;">Disponible</span></p>
                           <p><?php echo "Precio: RD$ ".  $arr[4] ?></p>
                           <?php
-                          echo "<a href='ReservarHabitaciones.php?precio=$arr[4]&habitacion=$arrHabitacionp[4]&idHabitacion=$arrId[4]>' class='btn btn-success' style='color:white;'>
+                          echo "<a href='ReservarHabitaciones.php?precio=$arr[4]&habitacion=$arrHabitacionp[4]&idHabitacion=$arrId[4]' class='btn btn-success' style='color:white;'>
                           Reservar
                         </a>" ?>
                     </div>
@@ -111,7 +111,7 @@ $rs = conexion::query_array($sql);
                           style="color: blue;">Disponible</span></p>
                           <p><?php echo "Precio: RD$ ".  $arr[5] ?></p>
                           <?php
-                          echo "<a href='ReservarHabitaciones.php?precio=$arr[5]&habitacion=$arrHabitacionp[5]&idHabitacion=$arrId[5]>' class='btn btn-success' style='color:white;'>
+                          echo "<a href='ReservarHabitaciones.php?precio=$arr[5]&habitacion=$arrHabitacionp[5]&idHabitacion=$arrId[5]' class='btn btn-success' style='color:white;'>
                           Reservar
                         </a>" ?>
                     </div>
