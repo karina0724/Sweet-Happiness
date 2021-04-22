@@ -2,39 +2,41 @@
 ob_start();
 include('header.php'); 
 
-if($_POST){
-    
-    extract($_POST);
-
-    if(isset($_GET['edit'])){
-
-        $sql= "SELECT costo FROM habitaciones WHERE categoria = {$_POST['habitacion']}"; 
-        $rs = conexion::query_array($sql);
-        $precio = 100;
-         var_dump($_POST);
-         exit();
-
-        $sql2="UPDATE reservaciones_habitaciones SET id_habitaciones={$idHabitacion}, id_sucursales={$provincia}, fecha_inicio='{$fechaIni}', fecha_fin= '{$fechaFin}', monto_total={$precio} WHERE id={$_GET['edit']}";
-    
-        $rs = conexion::execute($sql2); 
-    }else{ 
-        $sql2 = "INSERT INTO reservaciones_habitaciones(id_habitaciones, id_HReservador, id_sucursales, fecha_inicio, fecha_fin, monto_total) 
-        VALUES ({$idHabitacion}, {$_SESSION['UserId']}, {$provincia}, '{$fechaIni}', '{$fechaFin}', {$precio})";
-    
-        $rs = conexion::execute($sql2); 
-    }
-
-    if($rs){
-        header("location: consultarReservaciones.php?idHuesped={$_SESSION['UserId']}");
-    } 
-   
-}
 
 if(isset($_GET['precio']) && isset($_GET['habitacion']) && isset($_GET['idHabitacion'])){
     $precio = $_GET['precio'];
     $tipoHabitacion = $_GET['habitacion'];
     $idHabitacion = $_GET['idHabitacion'];
 }
+
+if($_POST){
+    
+    extract($_POST);
+
+    if(isset($_GET['edit'])){
+
+        $sql= "SELECT * FROM habitaciones WHERE id = {$_POST['habitacion']}"; 
+        $rs = conexion::query_array($sql);
+
+        foreach($rs as $data)
+        {
+            $precio = $data['costo'];
+        }
+       
+        $sql2="UPDATE reservaciones_habitaciones SET id_habitaciones={$habitacion}, id_sucursales={$provincia}, fecha_inicio='{$fechaIni}', fecha_fin= '{$fechaFin}', monto_total={$precio} WHERE id={$_GET['edit']}";
+
+        $rs = conexion::execute($sql2); 
+    }else{ 
+        $sql2 = "INSERT INTO reservaciones_habitaciones(id_habitaciones, id_HReservador, id_sucursales, fecha_inicio, fecha_fin, monto_total) 
+        VALUES ({$idHabitacion}, {$_SESSION['UserId']}, {$provincia}, '{$fechaIni}', '{$fechaFin}', {$precio})";
+        
+        $rs = conexion::execute($sql2); 
+        // var_dump($idHabitacion, $_SESSION['UserId'], $provincia, $fechaIni, $fechaFin, $precio);
+        // exit();
+    }
+    
+}
+
 
 if(isset($_GET['edit'])){
     $sql= "select * from reservaciones_habitaciones where id= {$_GET['edit']}";
