@@ -28,11 +28,21 @@ if($_POST){
         $rs = conexion::execute($sql2); 
         header("location: consultarReservaciones.php?idHuesped={$_SESSION['UserId']}");
     }else{ 
-        $sql2 = "INSERT INTO reservaciones_habitaciones(id_habitaciones, id_HReservador, id_sucursales, fecha_inicio, fecha_fin, monto_total) 
-        VALUES ({$idHabitacion}, {$_SESSION['UserId']}, {$provincia}, '{$fechaIni}', '{$fechaFin}', {$precio})";
+        if($_SESSION['rol'] == 2)
+        {
+            $sql2 = "INSERT INTO reservaciones_habitaciones(id_habitaciones, id_HReservador, id_sucursales, fecha_inicio, fecha_fin, monto_total) 
+            VALUES ({$idHabitacion}, {$huesped}, {$provincia}, '{$fechaIni}', '{$fechaFin}', {$precio})";    
+            
+            $rs = conexion::execute($sql2); 
+        }
+        else{
+            $sql2 = "INSERT INTO reservaciones_habitaciones(id_habitaciones, id_HReservador, id_sucursales, fecha_inicio, fecha_fin, monto_total) 
+            VALUES ({$idHabitacion}, {$_SESSION['UserId']}, {$provincia}, '{$fechaIni}', '{$fechaFin}', {$precio})";
+            
+            $rs = conexion::execute($sql2); 
+            header("location: consultarReservaciones.php?idHuesped={$_SESSION['UserId']}");
+        }
         
-        $rs = conexion::execute($sql2); 
-        header("location: consultarReservaciones.php?idHuesped={$_SESSION['UserId']}");
     }    
 }
 
@@ -56,6 +66,26 @@ ob_end_flush();
 <div class=" container col-md-8">
     <h2>Reservar Habitación</h2>
     <form method="POST">
+       <!-- DEBO PONERLE SI EL  USUARIO ACTUAL ES UN EMPLEADO QUE  ME CARGUE LOS HUÉSPEDES -->
+          <?php if($_SESSION['rol'] == 2){?>
+               <div class="form-group">
+               <label for="huesped">Huésped</label>
+               <select class="form-control" id="huesped" name="huesped">
+                   <option value=0 selected>Seleccione un huésped<option>
+                   <?php
+                   $sql= "SELECT * FROM reservadores_huesped"; 
+                   $rs = conexion::query_array($sql);
+                   foreach($rs as $data)
+                   {
+                   echo "
+                       <option value='{$data['id']}'>{$data['nombre']} {$data['apellido']} - Cédula ({$data['cédula']})</option>
+                   ";
+                   }?>
+               </select>
+         </div>
+          <?php } ?>
+           
+        
         <div class="form-row">
         <div class="form-group col-md-6">
                         <label for="habitacion">Habitación</label> 

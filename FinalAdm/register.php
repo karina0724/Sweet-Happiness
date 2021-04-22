@@ -9,7 +9,7 @@ include("header.php");
 
         $sql = "INSERT INTO reservadores_huesped(cédula, provincia, nombre, apellido, teléfono, celular, correo, contraseña, rol) VALUES ({$cedula}, '{$provincia}', '{$nombre}', '{$apellido}','{$telefono}', '{$celular}', '{$correo}', {$contraseña},'3')";
         $rs = conexion::execute($sql);
-     
+        
     }
 ?>
 
